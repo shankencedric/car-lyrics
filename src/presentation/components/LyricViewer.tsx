@@ -14,41 +14,38 @@ interface LyricViewerProps {
     isLoading: boolean;
 }
 
-const LINE_HEIGHT = 56;
-
 export const LyricViewer: React.FC<LyricViewerProps> = ({
     lyrics,
     activeLineIndex,
     isLoading,
-    }) => {
-        
+}) => {
     const flatListRef = useRef<FlatList<LyricsLine>>(null);
 
     // Automatically scroll to center the active line
     useEffect(() => {
         if (activeLineIndex >= 0 && flatListRef.current) {
-        flatListRef.current.scrollToIndex({
-            index: activeLineIndex,
-            animated: true,
-            viewPosition: 0.5, // Centers active line on screen
-        });
+            flatListRef.current.scrollToIndex({
+                index: activeLineIndex,
+                animated: true,
+                viewPosition: 0.5, // Centers active line on screen
+            });
         }
     }, [activeLineIndex]);
 
     if (isLoading) {
         return (
-        <View style={styles.centered}>
-            <ActivityIndicator size="large" color="#ffffff" />
-            <Text style={styles.statusText}>Fetching lyrics...</Text>
-        </View>
+            <View style={styles.centered}>
+                <ActivityIndicator size="large" color="#ffffff" />
+                <Text style={styles.statusText}>Fetching lyrics...</Text>
+            </View>
         );
     }
 
     if (!lyrics || lyrics.lines.length === 0) {
         return (
-        <View style={styles.centered}>
-            <Text style={styles.statusText}>No lyrics available for this track</Text>
-        </View>
+            <View style={styles.centered}>
+                <Text style={styles.statusText}>No lyrics available for this track</Text>
+            </View>
         );
     }
 
@@ -56,42 +53,41 @@ export const LyricViewer: React.FC<LyricViewerProps> = ({
         const isActive = index === activeLineIndex;
 
         return (
-        <View style={styles.lineRow}>
-            <Text
-                style={[
-                    styles.lineText,
-                    isActive ? styles.activeLineText : styles.inactiveLineText,
-                ]}
-            >
-            {item.text || '♪'}
-            </Text>
-        </View>
+            <View style={styles.lineRow}>
+                <Text
+                    style={[
+                        styles.lineText,
+                        isActive ? styles.activeLineText : styles.inactiveLineText,
+                    ]}
+                >
+                    {item.text || '♪'}
+                </Text>
+            </View>
         );
     };
 
     return (
         <View style={styles.container}>
-        <FlatList
-            ref={flatListRef}
-            data={lyrics.lines}
-            keyExtractor={(item, index) => `${item.timestampMs}-${index}`}
-            renderItem={renderItem}
-            getItemLayout={(_, index) => ({
-                length: LINE_HEIGHT,
-                offset: LINE_HEIGHT * index,
-                index,
-            })}
-            onScrollToIndexFailed={() => {
-                // Fallback if index scrolling is triggered before layout measurement finishes
-            }}
-            contentContainerStyle={styles.listContent}
-            showsVerticalScrollIndicator={false}
-        />
+            <FlatList
+                ref={flatListRef}
+                data={lyrics.lines}
+                keyExtractor={(item, index) => `${item.timestampMs}-${index}`}
+                renderItem={renderItem}
+                onScrollToIndexFailed={(info) => {
+                    // Smooth fallback scroll when dealing with dynamic line heights
+                    flatListRef.current?.scrollToOffset({
+                        offset: info.averageItemLength * info.index,
+                        animated: true,
+                    });
+                }}
+                contentContainerStyle={styles.listContent}
+                showsVerticalScrollIndicator={false}
+            />
         </View>
     );
-    };
+};
 
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121212',
@@ -108,21 +104,25 @@ export const LyricViewer: React.FC<LyricViewerProps> = ({
         marginTop: 12,
     },
     listContent: {
-        paddingVertical: '50%', // Allows top/bottom lines to scroll into middle
+        paddingVertical: '50%', 
         paddingHorizontal: 24,
     },
     lineRow: {
-        height: LINE_HEIGHT,
+        paddingVertical: 11, 
         justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
     },
     lineText: {
         fontSize: 22,
         fontWeight: '700',
         textAlign: 'center',
+        lineHeight: 32, // Prevents text lines from overlapping when a lyric wraps
     },
     activeLineText: {
         color: '#ffffff',
         fontSize: 26,
+        lineHeight: 38, // Matched line height for active font size
         opacity: 1,
     },
     inactiveLineText: {
