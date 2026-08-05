@@ -2,6 +2,7 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { EmbeddedPlayer } from '../src/presentation/components/EmbeddedPlayer';
 import { LyricViewer } from '../src/presentation/components/LyricViewer';
+import { useCarPlaySync } from '../src/presentation/hooks/useCarPlaySync';
 import { useLiveActivitySync } from '../src/presentation/hooks/useLiveActivitySync';
 import { useMusicSync } from '../src/presentation/hooks/useMusicSync';
 
@@ -10,6 +11,7 @@ export default function App() {
         currentTrack,
         lyrics,
         activeLineIndex,
+        isPlaying,
         isLoadingLyrics,
         handleTrackChange,
         handleTimeUpdate,
@@ -17,6 +19,7 @@ export default function App() {
     } = useMusicSync();
 
     useLiveActivitySync(currentTrack, lyrics, activeLineIndex);
+    useCarPlaySync(currentTrack, lyrics, activeLineIndex, isPlaying);
 
     return (
         <SafeAreaProvider>
