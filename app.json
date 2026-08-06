@@ -9,8 +9,23 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
+      "supportsTablet": true,
       "bundleIdentifier": "com.shankencedric.carlyrics",
       "infoPlist": {
+        "NSSupportsLiveActivities": true,
+        "NSSupportsLiveActivitiesFrequentUpdates": true,
+        "UIBackgroundModes": ["audio"]
+        "UIApplicationSceneManifest": {
+            "UIApplicationSupportsMultipleScenes": true,
+            "UISceneConfigurations": {
+                "CPTemplateApplicationSceneSessionRoleApplication": [
+                    {
+                        "UISceneClassName": "CPTemplateApplicationScene",
+                        "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate"
+                    }
+                ]
+            }
+        }
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -21,7 +36,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.shankencedric.carlyrics"
     },
     "web": {
       "output": "static",
