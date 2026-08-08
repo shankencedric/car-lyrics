@@ -11,6 +11,12 @@
 		2D36A3B070984EE8B4EDA41C /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = C5637953C35D41A1A700420E /* expo.icon */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		50CBC1EED2625DCE6264C17E /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A660C8F477997A8F24AE98E3 /* ExpoModulesProvider.swift */; };
+		8BE6EC293027E61800592ACF /* CarPlayBridgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */; };
+		8BE6EC2B3027E62800592ACF /* CarPlayBridgeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */; };
+		8BE6EC2D3027E63100592ACF /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */; };
+		8BE6EC2F3027E63C00592ACF /* LyricsActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */; };
+		8BE6EC313027E64400592ACF /* LyricsActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */; };
+		8BE6EC353027E66700592ACF /* LyricsActivityWidget in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6EC343027E66700592ACF /* LyricsActivityWidget */; };
 		8F21B91DFAC28A06C703D72E /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71A674DB558946DF3F68E7 /* libPods-carlyrics.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		C52F7DEAC8438DF5517C4172 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */; };
@@ -18,17 +24,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		09017F50895965FBEA4E6C5B /* Pods-carlyrics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.debug.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.debug.xcconfig"; sourceTree = "<group>"; };
+		07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* carlyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carlyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = carlyrics/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = carlyrics/Info.plist; sourceTree = "<group>"; };
+		8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarPlayBridgeModule.m; sourceTree = "<group>"; };
+		8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayBridgeModule.swift; sourceTree = "<group>"; };
+		8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
+		8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsActivityModule.m; sourceTree = "<group>"; };
+		8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricsActivityModule.swift; sourceTree = "<group>"; };
+		8BE6EC343027E66700592ACF /* LyricsActivityWidget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LyricsActivityWidget; sourceTree = "<group>"; };
 		A660C8F477997A8F24AE98E3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = carlyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
 		AE71A674DB558946DF3F68E7 /* libPods-carlyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-carlyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C5637953C35D41A1A700420E /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
-		DDDB1FC51400E6EC378A1810 /* Pods-carlyrics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.release.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.release.xcconfig"; sourceTree = "<group>"; };
+		C5637953C35D41A1A700420E /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = carlyrics/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "carlyrics-Bridging-Header.h"; path = "carlyrics/carlyrics-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -49,6 +59,12 @@
 		13B07FAE1A68108700A75B9A /* carlyrics */ = {
 			isa = PBXGroup;
 			children = (
+				8BE6EC343027E66700592ACF /* LyricsActivityWidget */,
+				8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */,
+				8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */,
+				8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */,
+				8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */,
+				8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */,
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
 				F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
@@ -92,7 +108,6 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				86549BD924C761A557C059F8 /* Pods */,
 				D133646AD83E20D792183DE0 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
@@ -106,16 +121,6 @@
 				13B07F961A680F5B00A75B9A /* carlyrics.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		86549BD924C761A557C059F8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				09017F50895965FBEA4E6C5B /* Pods-carlyrics.debug.xcconfig */,
-				DDDB1FC51400E6EC378A1810 /* Pods-carlyrics.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -197,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
+				8BE6EC353027E66700592ACF /* LyricsActivityWidget in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				2D36A3B070984EE8B4EDA41C /* expo.icon in Resources */,
@@ -336,7 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
+				8BE6EC313027E64400592ACF /* LyricsActivityModule.swift in Sources */,
 				50CBC1EED2625DCE6264C17E /* ExpoModulesProvider.swift in Sources */,
+				8BE6EC293027E61800592ACF /* CarPlayBridgeModule.m in Sources */,
+				8BE6EC2B3027E62800592ACF /* CarPlayBridgeModule.swift in Sources */,
+				8BE6EC2F3027E63C00592ACF /* LyricsActivityModule.m in Sources */,
+				8BE6EC2D3027E63100592ACF /* CarPlaySceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,12 +356,12 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09017F50895965FBEA4E6C5B /* Pods-carlyrics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQFUDY2T47;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -370,23 +381,23 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics;
-				PRODUCT_NAME = "carlyrics";
+				PRODUCT_NAME = carlyrics;
 				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDDB1FC51400E6EC378A1810 /* Pods-carlyrics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQFUDY2T47;
 				INFOPLIST_FILE = carlyrics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -401,10 +412,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics;
-				PRODUCT_NAME = "carlyrics";
+				PRODUCT_NAME = carlyrics;
 				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

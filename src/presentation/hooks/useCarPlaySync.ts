@@ -1,5 +1,5 @@
-    import { useEffect, useRef } from 'react';
-import { CarPlayPresenter } from '../../../ios/adapters/CarPlayPresenter';
+import { useEffect, useRef } from 'react';
+import { CarPlayPresenter } from '../../adapters/CarPlayPresenter';
 import { SyncedLyrics, TrackMetadata } from '../../domain/models/lyrics';
 
     export function useCarPlaySync(
