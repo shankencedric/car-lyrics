@@ -55,12 +55,27 @@ export const EmbeddedPlayer: React.FC<EmbeddedPlayerProps> = ({
             <WebView
                 ref={webViewRef}
                 source={{ uri: 'https://music.youtube.com' }}
-                injectedJavaScript={YTM_OBSERVER_SCRIPT}
-                onMessage={handleBridgeMessage}
-                userAgent="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+                // 1. Critical for standalone iOS media execution
                 allowsInlineMediaPlayback={true}
                 mediaPlaybackRequiresUserAction={false}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                originWhitelist={['*']}
+                // 2. Prevents YouTube from blocking standalone iOS WebViews
+                userAgent="Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1"
+                // 3. Catch WebContent crashes and errors
+                onError={(syntheticEvent) => {
+                const { nativeEvent } = syntheticEvent;
+                console.warn('WebView Error:', nativeEvent);
+                }}
+                onRenderProcessGone={(syntheticEvent) => {
+                const { nativeEvent } = syntheticEvent;
+                console.warn('WebView Process Terminated:', nativeEvent.didCrash);
+                }}
                 style={styles.webview}
+
+                injectedJavaScript={YTM_OBSERVER_SCRIPT}
+                onMessage={handleBridgeMessage}
             />
         </View>
     );
@@ -69,9 +84,10 @@ export const EmbeddedPlayer: React.FC<EmbeddedPlayerProps> = ({
     const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
+        backgroundColor: '#1c1c1e',
     },
     webview: {
         flex: 1,
+        backgroundColor: '#000000',
     },
 });

@@ -15,16 +15,8 @@
         "NSSupportsLiveActivities": true,
         "NSSupportsLiveActivitiesFrequentUpdates": true,
         "UIBackgroundModes": ["audio"],
-        "UIApplicationSceneManifest": {
-            "UIApplicationSupportsMultipleScenes": true,
-            "UISceneConfigurations": {
-                "CPTemplateApplicationSceneSessionRoleApplication": [
-                    {
-                        "UISceneClassName": "CPTemplateApplicationScene",
-                        "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate"
-                    }
-                ]
-            }
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
         },
         "ITSAppUsesNonExemptEncryption": false
       }
