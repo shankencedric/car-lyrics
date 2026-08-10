@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,20 +11,51 @@
 		18B1A2910784AC0D0B9AD3EC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */; };
 		3DD7CCA59849496AB670FF6F /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = 665517037457445EB92A1794 /* expo.icon */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		8B19A61B302A002900F5DB3E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B19A61A302A002900F5DB3E /* WidgetKit.framework */; };
+		8B19A61D302A002A00F5DB3E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B19A61C302A002900F5DB3E /* SwiftUI.framework */; };
+		8B19A62E302A002F00F5DB3E /* CarLyricsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8B19A619302A002900F5DB3E /* CarLyricsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A33CFA9A886ADD24833FD089 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84231D86DB906D1AF5113DFA /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		BDF5B8FD220FB91411F34F06 /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8B19A62C302A002F00F5DB3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B19A618302A002900F5DB3E;
+			remoteInfo = CarLyricsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B19A62F302A002F00F5DB3E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8B19A62E302A002F00F5DB3E /* CarLyricsWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		13B07F961A680F5B00A75B9A /* carlyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carlyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = carlyrics/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = carlyrics/Info.plist; sourceTree = "<group>"; };
-		665517037457445EB92A1794 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
+		665517037457445EB92A1794 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
 		84231D86DB906D1AF5113DFA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-carlyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8B19A619302A002900F5DB3E /* CarLyricsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarLyricsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B19A61A302A002900F5DB3E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		8B19A61C302A002900F5DB3E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		8B19A634302A005B00F5DB3E /* CarLyricsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarLyricsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		9A40C1C3039DDE0C59BE1D13 /* Pods-carlyrics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.debug.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.debug.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = carlyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
@@ -34,12 +65,35 @@
 		FF40C5C151BA76F31A3CE2E4 /* Pods-carlyrics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.release.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8B19A632302A002F00F5DB3E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8B19A618302A002900F5DB3E /* CarLyricsWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8B19A61E302A002A00F5DB3E /* CarLyricsWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8B19A632302A002F00F5DB3E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = CarLyricsWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BDF5B8FD220FB91411F34F06 /* libPods-carlyrics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B19A616302A002900F5DB3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B19A61D302A002A00F5DB3E /* SwiftUI.framework in Frameworks */,
+				8B19A61B302A002900F5DB3E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +121,6 @@
 				9A40C1C3039DDE0C59BE1D13 /* Pods-carlyrics.debug.xcconfig */,
 				FF40C5C151BA76F31A3CE2E4 /* Pods-carlyrics.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +137,8 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */,
+				8B19A61A302A002900F5DB3E /* WidgetKit.framework */,
+				8B19A61C302A002900F5DB3E /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,8 +161,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8B19A634302A005B00F5DB3E /* CarLyricsWidgetExtension.entitlements */,
 				13B07FAE1A68108700A75B9A /* carlyrics */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				8B19A61E302A002A00F5DB3E /* CarLyricsWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				21342D7B2CF6FE2708EC91BD /* Pods */,
@@ -122,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* carlyrics.app */,
+				8B19A619302A002900F5DB3E /* CarLyricsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,15 +208,39 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
 				91E8180757B0A01A1E89C200 /* [CP] Embed Pods Frameworks */,
+				8B19A62F302A002F00F5DB3E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8B19A62D302A002F00F5DB3E /* PBXTargetDependency */,
 			);
 			name = carlyrics;
 			productName = carlyrics;
 			productReference = 13B07F961A680F5B00A75B9A /* carlyrics.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8B19A618302A002900F5DB3E /* CarLyricsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B19A633302A002F00F5DB3E /* Build configuration list for PBXNativeTarget "CarLyricsWidgetExtension" */;
+			buildPhases = (
+				8B19A615302A002900F5DB3E /* Sources */,
+				8B19A616302A002900F5DB3E /* Frameworks */,
+				8B19A617302A002900F5DB3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8B19A61E302A002A00F5DB3E /* CarLyricsWidget */,
+			);
+			name = CarLyricsWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = CarLyricsWidgetExtension;
+			productReference = 8B19A619302A002900F5DB3E /* CarLyricsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,12 +248,16 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = RQFUDY2T47;
 						LastSwiftMigration = 1250;
-						DevelopmentTeam = "RQFUDY2T47";
 						ProvisioningStyle = Automatic;
+					};
+					8B19A618302A002900F5DB3E = {
+						CreatedOnToolsVersion = 26.5;
 					};
 				};
 			};
@@ -189,6 +275,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* carlyrics */,
+				8B19A618302A002900F5DB3E /* CarLyricsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +290,13 @@
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				3DD7CCA59849496AB670FF6F /* expo.icon in Resources */,
 				18B1A2910784AC0D0B9AD3EC /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B19A617302A002900F5DB3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +436,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B19A615302A002900F5DB3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B19A62D302A002F00F5DB3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B19A618302A002900F5DB3E /* CarLyricsWidgetExtension */;
+			targetProxy = 8B19A62C302A002F00F5DB3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
@@ -352,7 +461,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQFUDY2T47;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -378,9 +490,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				DEVELOPMENT_TEAM = "RQFUDY2T47";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
@@ -391,7 +500,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQFUDY2T47;
 				INFOPLIST_FILE = carlyrics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -411,9 +523,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				DEVELOPMENT_TEAM = "RQFUDY2T47";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};
@@ -537,6 +646,103 @@
 			};
 			name = Release;
 		};
+		8B19A630302A002F00F5DB3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = CarLyricsWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = RQFUDY2T47;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarLyricsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CarLyricsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics.CarLyricsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B19A631302A002F00F5DB3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = CarLyricsWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = RQFUDY2T47;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarLyricsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CarLyricsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics.CarLyricsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -554,6 +760,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B19A633302A002F00F5DB3E /* Build configuration list for PBXNativeTarget "CarLyricsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B19A630302A002F00F5DB3E /* Debug */,
+				8B19A631302A002F00F5DB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
