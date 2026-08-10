@@ -8,81 +8,101 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
-    }
-
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
-    }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
-    }
-
-//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
-}
-
+// 1. Entry model holding track metadata and current lyric line
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let title: String
+    let artist: String
+    let lyric: String
 }
 
+// 2. TimelineProvider reading from shared App Group UserDefaults
+struct Provider: TimelineProvider {
+    func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(
+            date: Date(),
+            title: "Song Title",
+            artist: "Artist Name",
+            lyric: "♪ Synchronized lyrics will appear here"
+        )
+    }
+
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+        completion(fetchSharedEntry())
+    }
+
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+        let entry = fetchSharedEntry()
+        // Refresh every 15 minutes, or on-demand when React Native calls AppGroupModule
+        let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+        let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
+        completion(timeline)
+    }
+
+    private func fetchSharedEntry() -> SimpleEntry {
+        let defaults = UserDefaults(suiteName: "group.com.shankencedric.carlyrics")
+        let title = defaults?.string(forKey: "currentTitle") ?? "No Track Playing"
+        let artist = defaults?.string(forKey: "currentArtist") ?? "Car Lyrics"
+        let lyric = defaults?.string(forKey: "currentLyric") ?? "♪ Play music to display lyrics"
+
+        return SimpleEntry(date: Date(), title: title, artist: artist, lyric: lyric)
+    }
+}
+
+// 3. SwiftUI view for Home Screen, Lock Screen, and CarPlay widget stacks
 struct CarLyricsWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Image(systemName: "music.note")
+                    .foregroundColor(.green)
+                Text(entry.title)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                    .foregroundColor(.secondary)
+            }
 
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
+            Text(entry.artist)
+                .font(.caption2)
+                .foregroundColor(.gray)
+                .lineLimit(1)
+
+            Spacer()
+
+            Text(entry.lyric)
+                .font(.system(size: 15, weight: .semibold, design: .rounded))
+                .foregroundColor(.white)
+                .lineLimit(3)
+                .minimumScaleFactor(0.8)
+
+            Spacer()
         }
+        .padding()
+        .containerBackground(.black, for: .widget)
     }
 }
 
+// 4. Main Widget configuration (using StaticConfiguration)
 struct CarLyricsWidget: Widget {
     let kind: String = "CarLyricsWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CarLyricsWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
         }
+        .configurationDisplayName("Car Lyrics")
+        .description("Displays real-time song lyrics on your Home Screen, Lock Screen, and CarPlay widget stack.")
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryRectangular])
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
-
-#Preview(as: .systemSmall) {
+// 5. Xcode Canvas Preview with realistic song data
+#Preview(as: .systemMedium) {
     CarLyricsWidget()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+    SimpleEntry(date: .now, title: "Bohemian Rhapsody", artist: "Queen", lyric: "♪ Is this the real life? Is this just fantasy?")
+    SimpleEntry(date: .now, title: "Hotel California", artist: "Eagles", lyric: "♪ Welcome to the Hotel California")
 }
