@@ -1,11 +1,11 @@
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { EmbeddedPlayer } from '../src/presentation/components/EmbeddedPlayer';
 import { LyricViewer } from '../src/presentation/components/LyricViewer';
 import { useLiveActivitySync } from '../src/presentation/hooks/useLiveActivitySync';
 import { useMusicSync } from '../src/presentation/hooks/useMusicSync';
 import { useWidgetSync } from '../src/presentation/hooks/useWidgetSync';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
     const {
@@ -25,45 +25,49 @@ export default function App() {
     useWidgetSync(currentTrack, lyrics, activeLineIndex);
 
     return ( 
-    <GestureHandlerRootView style={styles.root}>
-        <SafeAreaProvider>
-            <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
-                <StatusBar barStyle="light-content" />
+        <GestureHandlerRootView style={styles.root}>
+            <SafeAreaProvider>
+                <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+                    <StatusBar barStyle="light-content" />
 
-                {/* Top Half: Embedded Web Player */}
-                <View style={styles.playerContainer}>
-                    <EmbeddedPlayer
-                        onTrackChange={handleTrackChange}
-                        onTimeUpdate={handleTimeUpdate}
-                        onPlaybackStateChange={handlePlaybackStateChange}
-                    />
-                </View>
+                    {/* Top Half: Embedded Web Player */}
+                    <View style={styles.playerContainer}>
+                        <EmbeddedPlayer
+                            onTrackChange={handleTrackChange}
+                            onTimeUpdate={handleTimeUpdate}
+                            onPlaybackStateChange={handlePlaybackStateChange}
+                        />
+                    </View>
 
-                {/* Middle Bar: Active Track Header */}
-                <View style={styles.trackHeader}>
-                    <Text style={styles.trackTitle} numberOfLines={1}>
-                        {currentTrack ? currentTrack.title : 'Waiting for YouTube Music...'}
-                    </Text>
-                    <Text style={styles.trackArtist} numberOfLines={1}>
-                        {currentTrack ? currentTrack.artists.join(', ') : 'Play a song to begin'}
-                    </Text>
-                </View>
+                    {/* Middle Bar: Active Track Header */}
+                    <View style={styles.trackHeader}>
+                        <Text style={styles.trackTitle} numberOfLines={1}>
+                            {currentTrack ? currentTrack.title : 'Waiting for YouTube Music...'}
+                        </Text>
+                        <Text style={styles.trackArtist} numberOfLines={1}>
+                            {currentTrack ? currentTrack.artists.join(', ') : 'Play a song to begin'}
+                        </Text>
+                    </View>
 
-                {/* Bottom Half: Time-Synced Lyric Viewer */}
-                <View style={styles.lyricsContainer}>
-                    <LyricViewer
-                        lyrics={lyrics}
-                        activeLineIndex={activeLineIndex}
-                        isLoading={isLoadingLyrics}
-                    />
-                </View>
-            </SafeAreaView>
-        </SafeAreaProvider>
-    </GestureHandlerRootView>
+                    {/* Bottom Half: Time-Synced Lyric Viewer */}
+                    <View style={styles.lyricsContainer}>
+                        <LyricViewer
+                            lyrics={lyrics}
+                            activeLineIndex={activeLineIndex}
+                            isLoading={isLoadingLyrics}
+                        />
+                    </View>
+                </SafeAreaView>
+            </SafeAreaProvider>
+        </GestureHandlerRootView>
     );
 }
 
 const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+        backgroundColor: '#000000',
+    },
     container: {
         flex: 1,
         backgroundColor: '#000000',

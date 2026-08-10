@@ -1,118 +1,94 @@
-export interface WebPlayerEvent {
-  type: 'TRACK_CHANGE' | 'TIME_UPDATE' | 'PLAYBACK_STATE';
-  payload: {
-    title?: string;
-    artists?: string[];
-    album?: string;
-    durationSecs?: number;
-    currentTimeMs?: number;
-    isPlaying?: boolean;
-  };
-}
+// src/data/scripts/ytmObserver.ts
 
-/**
- * Self-contained JS snippet executed inside react-native-webview context.
- * Communicates with React Native via window.ReactNativeWebView.postMessage.
- */
 export const YTM_OBSERVER_SCRIPT = `
-(function() {
-    if (window.__YTM_OBSERVER_INJECTED__) return;
-    window.__YTM_OBSERVER_INJECTED__ = true;
+  (function() {
+    if (window.__YTM_OBSERVER_RUNNING__) return;
+    window.__YTM_OBSERVER_RUNNING__ = true;
 
-    let lastTrackId = '';
-    let lastIsPlaying = false;
+    let lastTitle = '';
+    let lastArtist = '';
 
-    function postToRN(type, payload) {
-        if (window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
-        window.ReactNativeWebView.postMessage(JSON.stringify({ type, payload }));
+    function getMetadata() {
+      let title = '';
+      let artist = '';
+      let artworkUrl = '';
+
+      // 1. Primary: MediaSession API
+      if (navigator.mediaSession && navigator.mediaSession.metadata) {
+        title = navigator.mediaSession.metadata.title || '';
+        artist = navigator.mediaSession.metadata.artist || '';
+        if (navigator.mediaSession.metadata.artwork && navigator.mediaSession.metadata.artwork.length > 0) {
+          artworkUrl = navigator.mediaSession.metadata.artwork[navigator.mediaSession.metadata.artwork.length - 1].src || '';
         }
+      }
+
+      // 2. Fallback: DOM Selectors
+      if (!title) {
+        const titleEl = document.querySelector('ytmusic-player-bar .title, .player-metadata .title, .title.ytmusic-player-bar');
+        if (titleEl && titleEl.textContent) title = titleEl.textContent.trim();
+      }
+      if (!artist) {
+        const artistEl = document.querySelector('ytmusic-player-bar .byline, .player-metadata .artist, .byline.ytmusic-player-bar');
+        if (artistEl && artistEl.textContent) artist = artistEl.textContent.trim();
+      }
+      if (!artworkUrl) {
+        const imgEl = document.querySelector('ytmusic-player-bar img, .player-metadata img, img.ytmusic-player-bar');
+        if (imgEl && imgEl.src) artworkUrl = imgEl.src;
+      }
+
+      return { title, artist, artworkUrl };
     }
 
-    function getMediaVideoElement() {
-        return document.querySelector('video');
-    }
+    function emitSync() {
+      try {
+        const { title, artist, artworkUrl } = getMetadata();
+        const media = document.querySelector('video, audio');
 
-    function parseArtists(bylineText) {
-        if (!bylineText) return [];
-        // YTM byline usually formatted as: "Artist 1, Artist 2 • Album • Year"
-        const parts = bylineText.split('•').map(s => s.trim());
-        const artistPart = parts[0] || '';
-        return artistPart
-        .split(/,|&|\\bfeat\\.\\b|\\bft\\.\\b/i)
-        .map(a => a.trim())
-        .filter(Boolean);
-    }
+        const currentTime = media ? (media.currentTime || 0) : 0;
+        const isPlaying = media ? (!media.paused && !media.ended && media.readyState > 1) : false;
 
-    function parseAlbum(bylineText) {
-        if (!bylineText) return undefined;
-        const parts = bylineText.split('•').map(s => s.trim());
-        // If 3 parts exist (Artist • Album • Year), index 1 is album
-        return parts.length >= 2 ? parts[1] : undefined;
-    }
+        // Emit track change if metadata updated
+        if (title && (title !== lastTitle || artist !== lastArtist)) {
+          lastTitle = title;
+          lastArtist = artist;
 
-    function extractMetadata() {
-        const titleEl = document.querySelector('ytmusic-player-bar .title');
-        const bylineEl = document.querySelector('ytmusic-player-bar .byline');
-        const videoEl = getMediaVideoElement();
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            type: 'TRACK_CHANGE',
+            payload: { title, artists: [artist || 'Unknown Artist'], artworkUrl }
+          }));
+        }
 
-        const title = titleEl ? titleEl.textContent.trim() : '';
-        const bylineText = bylineEl ? bylineEl.textContent.trim() : '';
-        const artists = parseArtists(bylineText);
-        const album = parseAlbum(bylineText);
-        const durationSecs = videoEl && !isNaN(videoEl.duration) ? videoEl.duration : 0;
-
-        const trackId = title + '::' + artists.join(',');
-
-        if (trackId !== lastTrackId && title.length > 0) {
-        lastTrackId = trackId;
-        postToRN('TRACK_CHANGE', {
+        // Emit time/state snapshot
+        window.ReactNativeWebView.postMessage(JSON.stringify({
+          type: 'TIME_UPDATE',
+          payload: {
             title,
-            artists,
-            album,
-            durationSecs
+            artist,
+            artworkUrl,
+            currentTime,
+            isPlaying,
+            timestamp: Date.now()
+          }
+        }));
+      } catch (e) {}
+    }
+
+    // Attach native media listeners when video element is found
+    function attachListeners() {
+      const media = document.querySelector('video, audio');
+      if (media && !media.__hasSyncListeners) {
+        media.__hasSyncListeners = true;
+        ['play', 'pause', 'seeking', 'seeked', 'ratechange', 'timeupdate'].forEach(function(evt) {
+          media.addEventListener(evt, emitSync);
         });
-        }
+      }
     }
 
-    // 1. Monitor DOM changes for track metadata updates
-    const observer = new MutationObserver(() => {
-        extractMetadata();
-    });
-
-    const playerBar = document.querySelector('ytmusic-player-bar');
-    if (playerBar) {
-        observer.observe(playerBar, { childList: true, subtree: true, characterData: true });
-    } else {
-        // Retry finding player bar if not loaded yet
-        const initInterval = setInterval(() => {
-        const bar = document.querySelector('ytmusic-player-bar');
-        if (bar) {
-            observer.observe(bar, { childList: true, subtree: true, characterData: true });
-            clearInterval(initInterval);
-        }
-        }, 1000);
-    }
-
-    // 2. High-frequency timer for exact media time sync (250ms)
-    setInterval(() => {
-        const videoEl = getMediaVideoElement();
-        if (!videoEl) return;
-
-        const isPlaying = !videoEl.paused && !videoEl.ended;
-        const currentTimeMs = Math.floor(videoEl.currentTime * 1000);
-
-        if (isPlaying !== lastIsPlaying) {
-        lastIsPlaying = isPlaying;
-        postToRN('PLAYBACK_STATE', { isPlaying });
-        }
-
-        if (isPlaying) {
-        postToRN('TIME_UPDATE', { currentTimeMs });
-        }
-    }, 250);
-
-    // Initial metadata check
-    extractMetadata();
-})();
-true; // Note: Required for WebView JS injection return value
+    // Poll periodically for metadata and media attachment
+    setInterval(function() {
+      attachListeners();
+      emitSync();
+    }, 500);
+  })();
+  true;
 `;

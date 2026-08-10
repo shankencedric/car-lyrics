@@ -1,11 +1,10 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { LrclibRepository } from '../../data/repositories/LrclibRepository';
 import { SyncedLyrics, TrackMetadata } from '../../domain/models/lyrics';
 
 const lyricsRepository = new LrclibRepository();
 
 export function useMusicSync() {
-
     const [currentTrack, setCurrentTrack] = useState<TrackMetadata | null>(null);
     const [lyrics, setLyrics] = useState<SyncedLyrics | null>(null);
     const [currentTimeMs, setCurrentTimeMs] = useState<number>(0);
@@ -15,7 +14,21 @@ export function useMusicSync() {
     // Track key reference to prevent duplicate API fetches for the same song
     const activeTrackKeyRef = useRef<string>('');
 
+    // Anchor Reference for local background extrapolation
+    const syncAnchorRef = useRef<{
+        baseTimeMs: number;
+        isPlaying: boolean;
+        timestamp: number;
+    }>({
+        baseTimeMs: 0,
+        isPlaying: false,
+        timestamp: Date.now(),
+    });
+
+    // 1. Fetch Lyrics from LrclibRepository
     const handleTrackChange = useCallback(async (newTrack: TrackMetadata) => {
+        if (!newTrack || !newTrack.title) return;
+
         const trackKey = `${newTrack.title}::${newTrack.artists.join(',')}`;
         if (trackKey === activeTrackKeyRef.current) return;
 
@@ -34,18 +47,41 @@ export function useMusicSync() {
         }
     }, []);
 
+    // 2. Handle Time Updates & Sync Anchor
     const handleTimeUpdate = useCallback((timeMs: number) => {
+        syncAnchorRef.current = {
+            baseTimeMs: timeMs,
+            isPlaying: syncAnchorRef.current.isPlaying,
+            timestamp: Date.now(),
+        };
         setCurrentTimeMs(timeMs);
     }, []);
 
+    // 3. Handle Playback State Change
     const handlePlaybackStateChange = useCallback((playing: boolean) => {
+        syncAnchorRef.current = {
+            baseTimeMs: syncAnchorRef.current.baseTimeMs,
+            isPlaying: playing,
+            timestamp: Date.now(),
+        };
         setIsPlaying(playing);
     }, []);
 
-    /**
-     * Computes the currently active line index by finding the last line
-     * whose timestamp is less than or equal to the current playback time.
-     */
+    // 4. Native React Native Local Extrapolation Loop
+    // Keeps currentTimeMs advancing in JS even when iOS throttles the WebView in background
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const { baseTimeMs, isPlaying: playing, timestamp } = syncAnchorRef.current;
+            if (!playing) return;
+
+            const elapsedMs = Date.now() - timestamp;
+            setCurrentTimeMs(baseTimeMs + elapsedMs);
+        }, 150);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // 5. Compute Active Lyric Line Index
     const activeLineIndex = useMemo(() => {
         if (!lyrics || !lyrics.isSynced || lyrics.lines.length === 0) 
             return -1;
@@ -54,7 +90,7 @@ export function useMusicSync() {
         for (let i = 0; i < lyrics.lines.length; i++) {
             if (lyrics.lines[i].timestampMs <= currentTimeMs) 
                 activeIndex = i;
-            else break; // Lines are sorted chronologically
+            else break;
         }
         
         return activeIndex;
