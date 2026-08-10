@@ -253,8 +253,6 @@ PODS:
     - ExpoModulesCore
   - ExpoSystemUI (6.0.9):
     - ExpoModulesCore
-  - ExpoUI (0.2.0-canary-20260121-a63c0dd):
-    - ExpoModulesCore
   - ExpoWebBrowser (15.0.11):
     - ExpoModulesCore
   - EXUpdatesInterface (2.0.0):
@@ -2249,7 +2247,6 @@ DEPENDENCIES:
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
   - ExpoSystemUI (from `../node_modules/expo-system-ui/ios`)
-  - "ExpoUI (from `../node_modules/@expo/ui/ios`)"
   - ExpoWebBrowser (from `../node_modules/expo-web-browser/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -2380,8 +2377,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-symbols/ios"
   ExpoSystemUI:
     :path: "../node_modules/expo-system-ui/ios"
-  ExpoUI:
-    :path: "../node_modules/@expo/ui/ios"
   ExpoWebBrowser:
     :path: "../node_modules/expo-web-browser/ios"
   EXUpdatesInterface:
@@ -2556,7 +2551,6 @@ SPEC CHECKSUMS:
   ExpoSplashScreen: bc3cffefca2716e5f22350ca109badd7e50ec14d
   ExpoSymbols: 349ee2b4d7d5ff3ea8436467914f8a67635aa354
   ExpoSystemUI: 2ad325f361a2fcd96a464e8574e19935c461c9cc
-  ExpoUI: 8782d05ed02018e6716d6233c50116d7951774ab
   ExpoWebBrowser: 970dd4c64c29c955c3af664c8058ba768a4c9187
   EXUpdatesInterface: 5adf50cb41e079c861da6d9b4b954c3db9a50734
   FBLazyVector: e95a291ad2dadb88e42b06e0c5fb8262de53ec12

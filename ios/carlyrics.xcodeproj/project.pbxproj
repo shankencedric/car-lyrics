@@ -8,40 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2D36A3B070984EE8B4EDA41C /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = C5637953C35D41A1A700420E /* expo.icon */; };
+		18B1A2910784AC0D0B9AD3EC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */; };
+		3DD7CCA59849496AB670FF6F /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = 665517037457445EB92A1794 /* expo.icon */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		50CBC1EED2625DCE6264C17E /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A660C8F477997A8F24AE98E3 /* ExpoModulesProvider.swift */; };
-		8BE6EC293027E61800592ACF /* CarPlayBridgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */; };
-		8BE6EC2B3027E62800592ACF /* CarPlayBridgeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */; };
-		8BE6EC2D3027E63100592ACF /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */; };
-		8BE6EC2F3027E63C00592ACF /* LyricsActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */; };
-		8BE6EC313027E64400592ACF /* LyricsActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */; };
-		8BE6EC353027E66700592ACF /* LyricsActivityWidget in Resources */ = {isa = PBXBuildFile; fileRef = 8BE6EC343027E66700592ACF /* LyricsActivityWidget */; };
-		8F21B91DFAC28A06C703D72E /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE71A674DB558946DF3F68E7 /* libPods-carlyrics.a */; };
+		A33CFA9A886ADD24833FD089 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84231D86DB906D1AF5113DFA /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		C52F7DEAC8438DF5517C4172 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */; };
+		BDF5B8FD220FB91411F34F06 /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* carlyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carlyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = carlyrics/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = carlyrics/Info.plist; sourceTree = "<group>"; };
-		8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarPlayBridgeModule.m; sourceTree = "<group>"; };
-		8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayBridgeModule.swift; sourceTree = "<group>"; };
-		8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
-		8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricsActivityModule.m; sourceTree = "<group>"; };
-		8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricsActivityModule.swift; sourceTree = "<group>"; };
-		8BE6EC343027E66700592ACF /* LyricsActivityWidget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LyricsActivityWidget; sourceTree = "<group>"; };
-		A660C8F477997A8F24AE98E3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		665517037457445EB92A1794 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
+		84231D86DB906D1AF5113DFA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-carlyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		9A40C1C3039DDE0C59BE1D13 /* Pods-carlyrics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.debug.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.debug.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = carlyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
-		AE71A674DB558946DF3F68E7 /* libPods-carlyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-carlyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C5637953C35D41A1A700420E /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = carlyrics/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "carlyrics-Bridging-Header.h"; path = "carlyrics/carlyrics-Bridging-Header.h"; sourceTree = "<group>"; };
+		FF40C5C151BA76F31A3CE2E4 /* Pods-carlyrics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.release.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F21B91DFAC28A06C703D72E /* libPods-carlyrics.a in Frameworks */,
+				BDF5B8FD220FB91411F34F06 /* libPods-carlyrics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +49,32 @@
 		13B07FAE1A68108700A75B9A /* carlyrics */ = {
 			isa = PBXGroup;
 			children = (
-				8BE6EC343027E66700592ACF /* LyricsActivityWidget */,
-				8BE6EC303027E64400592ACF /* LyricsActivityModule.swift */,
-				8BE6EC2E3027E63C00592ACF /* LyricsActivityModule.m */,
-				8BE6EC2C3027E63100592ACF /* CarPlaySceneDelegate.swift */,
-				8BE6EC2A3027E62800592ACF /* CarPlayBridgeModule.swift */,
-				8BE6EC283027E61700592ACF /* CarPlayBridgeModule.m */,
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
 				F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				C5637953C35D41A1A700420E /* expo.icon */,
-				07E2BEC07B99153B1853CBAD /* PrivacyInfo.xcprivacy */,
+				665517037457445EB92A1794 /* expo.icon */,
+				86FF29AF517292793B2726B5 /* PrivacyInfo.xcprivacy */,
+			);
+			name = carlyrics;
+			sourceTree = "<group>";
+		};
+		21342D7B2CF6FE2708EC91BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A40C1C3039DDE0C59BE1D13 /* Pods-carlyrics.debug.xcconfig */,
+				FF40C5C151BA76F31A3CE2E4 /* Pods-carlyrics.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2B34B544AB8D2662A8900F80 /* carlyrics */ = {
+			isa = PBXGroup;
+			children = (
+				84231D86DB906D1AF5113DFA /* ExpoModulesProvider.swift */,
 			);
 			name = carlyrics;
 			sourceTree = "<group>";
@@ -81,17 +83,17 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				AE71A674DB558946DF3F68E7 /* libPods-carlyrics.a */,
+				8571FB5575B0246897BF5F7F /* libPods-carlyrics.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		34DC261914EFD78C5887C122 /* carlyrics */ = {
+		5B4684AD15FC0146555AF924 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				A660C8F477997A8F24AE98E3 /* ExpoModulesProvider.swift */,
+				2B34B544AB8D2662A8900F80 /* carlyrics */,
 			);
-			name = carlyrics;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -108,7 +110,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				D133646AD83E20D792183DE0 /* ExpoModulesProviders */,
+				21342D7B2CF6FE2708EC91BD /* Pods */,
+				5B4684AD15FC0146555AF924 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -132,14 +135,6 @@
 			path = carlyrics/Supporting;
 			sourceTree = "<group>";
 		};
-		D133646AD83E20D792183DE0 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				34DC261914EFD78C5887C122 /* carlyrics */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,13 +143,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "carlyrics" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				08A6C2A20C81F152274C595D /* [Expo] Configure project */,
+				A9F3CC40901B5850E9A4FA57 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				0860F1AF4279FB3DF611035E /* [CP] Embed Pods Frameworks */,
+				91E8180757B0A01A1E89C200 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,6 +170,8 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1250;
+						DevelopmentTeam = "RQFUDY2T47";
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -202,11 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
-				8BE6EC353027E66700592ACF /* LyricsActivityWidget in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				2D36A3B070984EE8B4EDA41C /* expo.icon in Resources */,
-				C52F7DEAC8438DF5517C4172 /* PrivacyInfo.xcprivacy in Resources */,
+				3DD7CCA59849496AB670FF6F /* expo.icon in Resources */,
+				18B1A2910784AC0D0B9AD3EC /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,28 +226,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		0860F1AF4279FB3DF611035E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,30 +247,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		08A6C2A20C81F152274C595D /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/carlyrics/carlyrics.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-carlyrics/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -334,6 +284,52 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		91E8180757B0A01A1E89C200 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9F3CC40901B5850E9A4FA57 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/carlyrics/carlyrics.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-carlyrics/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -342,12 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				8BE6EC313027E64400592ACF /* LyricsActivityModule.swift in Sources */,
-				50CBC1EED2625DCE6264C17E /* ExpoModulesProvider.swift in Sources */,
-				8BE6EC293027E61800592ACF /* CarPlayBridgeModule.m in Sources */,
-				8BE6EC2B3027E62800592ACF /* CarPlayBridgeModule.swift in Sources */,
-				8BE6EC2F3027E63C00592ACF /* LyricsActivityModule.m in Sources */,
-				8BE6EC2D3027E63100592ACF /* CarPlaySceneDelegate.swift in Sources */,
+				A33CFA9A886ADD24833FD089 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,12 +347,12 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A40C1C3039DDE0C59BE1D13 /* Pods-carlyrics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RQFUDY2T47;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -385,19 +376,22 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+				DEVELOPMENT_TEAM = "RQFUDY2T47";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF40C5C151BA76F31A3CE2E4 /* Pods-carlyrics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RQFUDY2T47;
 				INFOPLIST_FILE = carlyrics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,8 +409,11 @@
 				PRODUCT_NAME = carlyrics;
 				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
+				DEVELOPMENT_TEAM = "RQFUDY2T47";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 			};
 			name = Release;
 		};

@@ -14,7 +14,7 @@
       "infoPlist": {
         "NSSupportsLiveActivities": true,
         "NSSupportsLiveActivitiesFrequentUpdates": true,
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": ["audio"],
         "UIApplicationSceneManifest": {
             "UIApplicationSupportsMultipleScenes": true,
             "UISceneConfigurations": {
@@ -25,7 +25,7 @@
                     }
                 ]
             }
-        }
+        },
         "ITSAppUsesNonExemptEncryption": false
       }
     },
