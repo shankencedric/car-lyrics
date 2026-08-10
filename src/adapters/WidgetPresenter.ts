@@ -10,7 +10,10 @@ export class WidgetPresenter {
     public static updateWidget(
         title: string,
         artist: string,
+        previousLine: string,
         currentLine: string,
+        nextLine: string,
+        followingLine: string,
         artworkUrl?: string
     ): void {
         if (!this.isSupported()) return;
@@ -19,7 +22,10 @@ export class WidgetPresenter {
             AppGroupModule.setLyricsData(
                 title,
                 artist,
-                currentLine ? `♪ ${currentLine}` : '♪ ...',
+                previousLine || '',
+                currentLine || '♪',
+                nextLine || '',
+                followingLine || '',
                 artworkUrl || ''
             );
         } catch {

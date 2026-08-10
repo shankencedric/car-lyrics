@@ -22,10 +22,27 @@ export function useWidgetSync(
         lastLineIndexRef.current = activeLineIndex;
         lastTrackTitleRef.current = currentTrack.title;
 
-        // Extract active lyric text safely
+        const lines = lyrics?.lines ?? [];
+
+        // Safe index extraction
+        const previousLineText =
+            activeLineIndex > 0 && lines[activeLineIndex - 1]
+                ? lines[activeLineIndex - 1].text
+                : '';
+
         const currentLineText =
-            lyrics && lyrics.lines && activeLineIndex >= 0 && lyrics.lines[activeLineIndex]
-                ? lyrics.lines[activeLineIndex].text
+            activeLineIndex >= 0 && lines[activeLineIndex]
+                ? lines[activeLineIndex].text
+                : '';
+
+        const nextLineText =
+            activeLineIndex + 1 < lines.length && lines[activeLineIndex + 1]
+                ? lines[activeLineIndex + 1].text
+                : '';
+
+        const followingLineText =
+            activeLineIndex + 2 < lines.length && lines[activeLineIndex + 2]
+                ? lines[activeLineIndex + 2].text
                 : '';
 
         const artistString = currentTrack.artists ? currentTrack.artists.join(', ') : 'Unknown Artist';
@@ -33,8 +50,11 @@ export function useWidgetSync(
         WidgetPresenter.updateWidget(
             currentTrack.title,
             artistString,
+            previousLineText,
             currentLineText,
-            currentTrack.artwork // Safely typed from TrackMetadata
+            nextLineText,
+            followingLineText,
+            currentTrack.artwork
         );
     }, [currentTrack, lyrics, activeLineIndex]);
 }

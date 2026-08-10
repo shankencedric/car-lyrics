@@ -11,30 +11,26 @@ import SwiftUI
 // MARK: - App Group & Key Definitions
 private enum AppGroup {
     static let suiteName = "group.com.shankencedric.carlyrics"
-    
+
     enum Keys {
-        // Base keys matching existing setup
         static let currentTitle = "currentTitle"
         static let currentArtist = "currentArtist"
+        static let previousLyric = "previousLyric"
         static let currentLyric = "currentLyric"
-        
-        // Extended keys for multi-line support
-        static let trackTitle = "trackTitle"
-        static let artistName = "artistName"
-        static let activeLyric = "activeLyric"
         static let nextLyric = "nextLyric"
         static let followingLyric = "followingLyric"
         static let progress = "progress"
-        static let artworkPath = "artworkPath"
+        static let artworkPath = "currentArtworkUrl"
     }
 }
 
-// MARK: - Timeline Entry
+// MARK: - Timeline Entry Model
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let title: String
     let artist: String
-    let lyric: String
+    let previousLyric: String?
+    let lyric: String // Active Lyric Line (Priority 1: The King)
     let nextLyric: String?
     let followingLyric: String?
     let progress: Double
@@ -45,6 +41,7 @@ struct SimpleEntry: TimelineEntry {
             date: Date(),
             title: "Bohemian Rhapsody",
             artist: "Queen",
+            previousLyric: "Mama, just killed a man",
             lyric: "Is this the real life? Is this just fantasy?",
             nextLyric: "Caught in a landslide, no escape from reality",
             followingLyric: "Open your eyes, look up to the skies and see",
@@ -58,6 +55,7 @@ struct SimpleEntry: TimelineEntry {
             date: Date(),
             title: "No Track Playing",
             artist: "Car Lyrics",
+            previousLyric: nil,
             lyric: "♪ Play music to display lyrics",
             nextLyric: nil,
             followingLyric: nil,
@@ -83,7 +81,6 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         let entry = fetchSharedEntry()
-        // Refresh every 15 minutes, or on-demand when React Native calls AppGroupModule
         let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: Date()) ?? Date().addingTimeInterval(900)
         let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
         completion(timeline)
@@ -92,19 +89,10 @@ struct Provider: TimelineProvider {
     private func fetchSharedEntry() -> SimpleEntry {
         let defaults = UserDefaults(suiteName: AppGroup.suiteName)
 
-        // Read with fallback to support both legacy and enhanced bridge keys
-        let title = defaults?.string(forKey: AppGroup.Keys.currentTitle)
-            ?? defaults?.string(forKey: AppGroup.Keys.trackTitle)
-            ?? "No Track Playing"
-
-        let artist = defaults?.string(forKey: AppGroup.Keys.currentArtist)
-            ?? defaults?.string(forKey: AppGroup.Keys.artistName)
-            ?? "Car Lyrics"
-
-        let lyric = defaults?.string(forKey: AppGroup.Keys.currentLyric)
-            ?? defaults?.string(forKey: AppGroup.Keys.activeLyric)
-            ?? "♪ Play music to display lyrics"
-
+        let title = defaults?.string(forKey: AppGroup.Keys.currentTitle) ?? "No Track Playing"
+        let artist = defaults?.string(forKey: AppGroup.Keys.currentArtist) ?? "Car Lyrics"
+        let previousLyric = defaults?.string(forKey: AppGroup.Keys.previousLyric)
+        let lyric = defaults?.string(forKey: AppGroup.Keys.currentLyric) ?? "♪ Play music to display lyrics"
         let nextLyric = defaults?.string(forKey: AppGroup.Keys.nextLyric)
         let followingLyric = defaults?.string(forKey: AppGroup.Keys.followingLyric)
         let progress = defaults?.double(forKey: AppGroup.Keys.progress) ?? 0.0
@@ -119,6 +107,7 @@ struct Provider: TimelineProvider {
             date: Date(),
             title: title,
             artist: artist,
+            previousLyric: previousLyric,
             lyric: lyric,
             nextLyric: nextLyric,
             followingLyric: followingLyric,
@@ -134,15 +123,10 @@ struct AccessoryInlineView: View {
 
     var body: some View {
         ViewThatFits {
-            // Option 1: Title + Active Lyric
             Text("♪ \(entry.title): \(entry.lyric)")
                 .lineLimit(1)
-
-            // Option 2: Active Lyric with music note
             Text("♪ \(entry.lyric)")
                 .lineLimit(1)
-
-            // Option 3: Active Lyric only (Priority 1 fallback)
             Text(entry.lyric)
                 .lineLimit(1)
         }
@@ -155,7 +139,6 @@ struct AccessoryRectangularView: View {
 
     var body: some View {
         ViewThatFits(in: .vertical) {
-            // Option A: Title Header + Active Lyric Line
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 4) {
                     Image(systemName: "music.note")
@@ -165,7 +148,6 @@ struct AccessoryRectangularView: View {
                         .fontWeight(.bold)
                         .lineLimit(1)
                 }
-                .foregroundColor(.secondary)
 
                 Text(entry.lyric)
                     .font(.caption)
@@ -174,7 +156,6 @@ struct AccessoryRectangularView: View {
                     .minimumScaleFactor(0.7)
             }
 
-            // Option B: Active Lyric Line Only (Preserves Priority 1 without truncation)
             VStack(alignment: .leading) {
                 Text(entry.lyric)
                     .font(.caption)
@@ -194,22 +175,21 @@ struct AccessoryCircularView: View {
         Gauge(value: entry.progress, in: 0...1.0) {
             Image(systemName: "music.note")
         } currentValueLabel: {
-            Text(entry.lyric.prefix(3).uppercased())
-                .font(.system(size: 10, weight: .bold))
+            Text("🎤")
+                .font(.system(size: 16))
         }
         .gaugeStyle(.accessoryCircular)
     }
 }
 
-// MARK: - 4. System Small View (systemSmall)
+// MARK: - 4. System Small View (Standard Active Lyric Card)
 struct SystemSmallView: View {
     let entry: SimpleEntry
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             ViewThatFits(in: .vertical) {
-                // Layout 1: Title Header + Active Lyric Line
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 4) {
                         Image(systemName: "music.note")
                             .foregroundColor(.green)
@@ -218,12 +198,12 @@ struct SystemSmallView: View {
                             .font(.caption2)
                             .fontWeight(.bold)
                             .lineLimit(1)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.white.opacity(0.85))
                     }
 
                     Text(entry.artist)
                         .font(.caption2)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white.opacity(0.65))
                         .lineLimit(1)
 
                     Spacer(minLength: 0)
@@ -237,7 +217,6 @@ struct SystemSmallView: View {
                     Spacer(minLength: 0)
                 }
 
-                // Layout 2: Active Lyric Only (Fallback giving 100% space to Priority 1)
                 VStack(alignment: .leading) {
                     Spacer(minLength: 0)
 
@@ -252,10 +231,80 @@ struct SystemSmallView: View {
             }
         }
         .padding()
-        .containerBackground(.black, for: .widget)
     }
 }
 
+// MARK: - Dedicated Small View: Dual Line (Active + Next)
+struct SystemSmallDualView: View {
+    let entry: SimpleEntry
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            ViewThatFits(in: .vertical) {
+                // Tier 1: Title Header + Active Line + Next Line
+                VStack(alignment: .leading, spacing: 4) {
+                    headerView
+                    Spacer(minLength: 0)
+                    activeLineText
+                    if let next = entry.nextLyric, !next.isEmpty {
+                        nextLineText(next)
+                    }
+                    Spacer(minLength: 0)
+                }
+
+                // Tier 2: Active Line + Next Line (Hides Title Header for extra vertical room)
+                VStack(alignment: .leading, spacing: 4) {
+                    Spacer(minLength: 0)
+                    activeLineText
+                    if let next = entry.nextLyric, !next.isEmpty {
+                        nextLineText(next)
+                    }
+                    Spacer(minLength: 0)
+                }
+
+                // Tier 3: Active Line Only (Failsafe ensuring Priority 1 is never truncated)
+                VStack(alignment: .leading) {
+                    Spacer(minLength: 0)
+                    activeLineText
+                    Spacer(minLength: 0)
+                }
+            }
+        }
+        .padding(12)
+        .containerBackground(.black, for: .widget)
+        .widgetURL(URL(string: "carlyrics://"))
+    }
+
+    private var headerView: some View {
+        HStack(spacing: 3) {
+            Image(systemName: "music.note")
+                .foregroundColor(.green)
+                .font(.system(size: 9, weight: .bold))
+            Text(entry.title)
+                .font(.system(size: 9, weight: .bold))
+                .foregroundColor(.white.opacity(0.85))
+                .lineLimit(1)
+        }
+    }
+
+    private var activeLineText: some View {
+        Text(entry.lyric)
+            .font(.system(size: 13, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .lineLimit(2)
+            .minimumScaleFactor(0.75)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    private func nextLineText(_ text: String) -> some View {
+        Text(text)
+            .font(.system(size: 11, weight: .semibold, design: .rounded))
+            .foregroundColor(.white.opacity(0.8))
+            .lineLimit(2)
+            .minimumScaleFactor(0.8)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+}
 // MARK: - 5. System Medium View (systemMedium)
 struct SystemMediumView: View {
     let entry: SimpleEntry
@@ -263,7 +312,6 @@ struct SystemMediumView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ViewThatFits(in: .vertical) {
-                // Layout A: Metadata Header + Active Lyric + Next Lyric
                 VStack(alignment: .leading, spacing: 6) {
                     headerView
                     activeLyricText
@@ -272,7 +320,6 @@ struct SystemMediumView: View {
                     }
                 }
 
-                // Layout B: Active Lyric + Next Lyric
                 VStack(alignment: .leading, spacing: 6) {
                     activeLyricText
                     if let next = entry.nextLyric, !next.isEmpty {
@@ -280,20 +327,17 @@ struct SystemMediumView: View {
                     }
                 }
 
-                // Layout C: Metadata Header + Active Lyric
                 VStack(alignment: .leading, spacing: 6) {
                     headerView
                     activeLyricText
                 }
 
-                // Layout D: Active Lyric Line Only
                 VStack(alignment: .leading) {
                     activeLyricText
                 }
             }
         }
         .padding()
-        .containerBackground(.black, for: .widget)
     }
 
     private var headerView: some View {
@@ -305,13 +349,13 @@ struct SystemMediumView: View {
                 .font(.caption)
                 .fontWeight(.bold)
                 .lineLimit(1)
-                .foregroundColor(.secondary)
+                .foregroundColor(.white.opacity(0.85))
             Text("•")
                 .font(.caption2)
-                .foregroundColor(.gray)
+                .foregroundColor(.white.opacity(0.5))
             Text(entry.artist)
                 .font(.caption2)
-                .foregroundColor(.gray)
+                .foregroundColor(.white.opacity(0.7))
                 .lineLimit(1)
         }
     }
@@ -326,9 +370,8 @@ struct SystemMediumView: View {
 
     private func nextLyricText(_ text: String) -> some View {
         Text(text)
-            .font(.system(size: 14, weight: .regular, design: .rounded))
-            .foregroundColor(.secondary)
-            .opacity(0.6)
+            .font(.system(size: 14, weight: .semibold, design: .rounded))
+            .foregroundColor(.white.opacity(0.8))
             .lineLimit(2)
             .minimumScaleFactor(0.8)
     }
@@ -340,7 +383,6 @@ struct SystemLargeView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Header Section
             HStack(spacing: 12) {
                 if let artwork = entry.artworkImage {
                     Image(uiImage: artwork)
@@ -350,7 +392,7 @@ struct SystemLargeView: View {
                         .cornerRadius(6)
                 } else {
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(Color.gray.opacity(0.3))
+                        .fill(Color.white.opacity(0.15))
                         .frame(width: 44, height: 44)
                         .overlay(
                             Image(systemName: "music.note")
@@ -366,7 +408,7 @@ struct SystemLargeView: View {
                         .lineLimit(1)
                     Text(entry.artist)
                         .font(.caption2)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white.opacity(0.75))
                         .lineLimit(1)
                 }
 
@@ -374,25 +416,28 @@ struct SystemLargeView: View {
             }
 
             Divider()
-                .background(Color.gray.opacity(0.4))
+                .background(Color.white.opacity(0.3))
 
-            // 3-Line Karaoke Sheet Stack
             ViewThatFits(in: .vertical) {
-                // Layout 1: Active + Next + Following
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 10) {
+                    previousLyricBlock
                     activeLyricBlock
                     nextLyricBlock
                     followingLyricBlock
                 }
 
-                // Layout 2: Active + Next
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 10) {
+                    previousLyricBlock
                     activeLyricBlock
                     nextLyricBlock
                 }
 
-                // Layout 3: Active Line Only
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 10) {
+                    activeLyricBlock
+                    nextLyricBlock
+                }
+
+                VStack(alignment: .leading, spacing: 10) {
                     activeLyricBlock
                 }
             }
@@ -400,7 +445,16 @@ struct SystemLargeView: View {
             Spacer(minLength: 0)
         }
         .padding()
-        .containerBackground(.black, for: .widget)
+    }
+
+    @ViewBuilder
+    private var previousLyricBlock: some View {
+        if let prev = entry.previousLyric, !prev.isEmpty {
+            Text(prev)
+                .font(.system(size: 13, weight: .medium, design: .rounded))
+                .foregroundColor(.white.opacity(0.55))
+                .lineLimit(1)
+        }
     }
 
     private var activeLyricBlock: some View {
@@ -415,9 +469,8 @@ struct SystemLargeView: View {
     private var nextLyricBlock: some View {
         if let next = entry.nextLyric, !next.isEmpty {
             Text(next)
-                .font(.system(size: 16, weight: .medium, design: .rounded))
-                .foregroundColor(.secondary)
-                .opacity(0.6)
+                .font(.system(size: 15, weight: .semibold, design: .rounded))
+                .foregroundColor(.white.opacity(0.85))
                 .lineLimit(2)
                 .minimumScaleFactor(0.8)
         }
@@ -427,11 +480,9 @@ struct SystemLargeView: View {
     private var followingLyricBlock: some View {
         if let following = entry.followingLyric, !following.isEmpty {
             Text(following)
-                .font(.system(size: 14, weight: .regular, design: .rounded))
-                .foregroundColor(.secondary)
-                .opacity(0.4)
-                .lineLimit(2)
-                .minimumScaleFactor(0.85)
+                .font(.system(size: 13, weight: .medium, design: .rounded))
+                .foregroundColor(.white.opacity(0.65))
+                .lineLimit(1)
         }
     }
 }
@@ -442,7 +493,6 @@ struct SystemExtraLargeView: View {
 
     var body: some View {
         HStack(spacing: 24) {
-            // Left Dashboard Panel (35% Width)
             VStack(alignment: .leading, spacing: 12) {
                 if let artwork = entry.artworkImage {
                     Image(uiImage: artwork)
@@ -453,7 +503,7 @@ struct SystemExtraLargeView: View {
                         .cornerRadius(12)
                 } else {
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.gray.opacity(0.2))
+                        .fill(Color.white.opacity(0.15))
                         .aspectRatio(1.0, contentMode: .fit)
                         .overlay(
                             Image(systemName: "music.note")
@@ -470,7 +520,7 @@ struct SystemExtraLargeView: View {
                         .lineLimit(1)
                     Text(entry.artist)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white.opacity(0.75))
                         .lineLimit(1)
                 }
 
@@ -482,33 +532,35 @@ struct SystemExtraLargeView: View {
             .frame(width: 200)
 
             Divider()
-                .background(Color.gray.opacity(0.4))
+                .background(Color.white.opacity(0.3))
 
-            // Right Lyric Panel (65% Width)
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 14) {
                 Spacer(minLength: 0)
 
-                // Active Lyric Line (The King)
+                if let prev = entry.previousLyric, !prev.isEmpty {
+                    Text(prev)
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(.white.opacity(0.55))
+                        .lineLimit(1)
+                }
+
                 Text(entry.lyric)
                     .font(.system(size: 26, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.7)
                     .fixedSize(horizontal: false, vertical: true)
 
-                // Subsequent Lines Stack
                 if let next = entry.nextLyric, !next.isEmpty {
                     Text(next)
-                        .font(.system(size: 20, weight: .medium, design: .rounded))
-                        .foregroundColor(.secondary)
-                        .opacity(0.6)
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        .foregroundColor(.white.opacity(0.85))
                         .lineLimit(2)
                 }
 
                 if let following = entry.followingLyric, !following.isEmpty {
                     Text(following)
-                        .font(.system(size: 16, weight: .regular, design: .rounded))
-                        .foregroundColor(.secondary)
-                        .opacity(0.4)
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(.white.opacity(0.65))
                         .lineLimit(2)
                 }
 
@@ -516,7 +568,6 @@ struct SystemExtraLargeView: View {
             }
         }
         .padding(20)
-        .containerBackground(.black, for: .widget)
     }
 }
 
@@ -526,28 +577,47 @@ struct CarLyricsWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
+        Group {
+            switch family {
+            case .accessoryInline:
+                AccessoryInlineView(entry: entry)
+            case .accessoryRectangular:
+                AccessoryRectangularView(entry: entry)
+            case .accessoryCircular:
+                AccessoryCircularView(entry: entry)
+            case .systemSmall:
+                SystemSmallView(entry: entry)
+            case .systemMedium:
+                SystemMediumView(entry: entry)
+            case .systemLarge:
+                SystemLargeView(entry: entry)
+            case .systemExtraLarge:
+                SystemExtraLargeView(entry: entry)
+            @unknown default:
+                SystemMediumView(entry: entry)
+            }
+        }
+        .widgetURL(URL(string: "carlyrics://"))
+        .containerBackground(for: .widget) {
+            if isAccessoryFamily(family) {
+                Color.clear
+            } else {
+                Color.black
+            }
+        }
+    }
+
+    private func isAccessoryFamily(_ family: WidgetFamily) -> Bool {
         switch family {
-        case .accessoryInline:
-            AccessoryInlineView(entry: entry)
-        case .accessoryRectangular:
-            AccessoryRectangularView(entry: entry)
-        case .accessoryCircular:
-            AccessoryCircularView(entry: entry)
-        case .systemSmall:
-            SystemSmallView(entry: entry)
-        case .systemMedium:
-            SystemMediumView(entry: entry)
-        case .systemLarge:
-            SystemLargeView(entry: entry)
-        case .systemExtraLarge:
-            SystemExtraLargeView(entry: entry)
-        @unknown default:
-            SystemMediumView(entry: entry)
+        case .accessoryInline, .accessoryRectangular, .accessoryCircular:
+            return true
+        default:
+            return false
         }
     }
 }
 
-// MARK: - Main Widget Configuration
+// MARK: - Main Multi-Family Widget
 struct CarLyricsWidget: Widget {
     let kind: String = "CarLyricsWidget"
 
@@ -569,6 +639,20 @@ struct CarLyricsWidget: Widget {
     }
 }
 
+// MARK: - Widget 2: Dual Line Small Widget
+struct CarLyricsSmallDualWidget: Widget {
+    let kind: String = "CarLyricsSmallDualWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            SystemSmallDualView(entry: entry)
+        }
+        .configurationDisplayName("Lyrics - Active & Next")
+        .description("Displays current and upcoming lyric lines in a small tile.")
+        .supportedFamilies([.systemSmall])
+    }
+}
+
 // MARK: - Xcode Canvas Previews
 #Preview(as: .systemMedium) {
     CarLyricsWidget()
@@ -577,20 +661,11 @@ struct CarLyricsWidget: Widget {
         date: .now,
         title: "Bohemian Rhapsody",
         artist: "Queen",
+        previousLyric: "Mama, just killed a man",
         lyric: "Is this the real life? Is this just fantasy?",
         nextLyric: "Caught in a landslide, no escape from reality",
         followingLyric: "Open your eyes, look up to the skies and see",
         progress: 0.2,
-        artworkImage: nil
-    )
-    SimpleEntry(
-        date: .now,
-        title: "Hotel California",
-        artist: "Eagles",
-        lyric: "Welcome to the Hotel California",
-        nextLyric: "Such a lovely place, such a lovely face",
-        followingLyric: "Plenty of room at the Hotel California",
-        progress: 0.5,
         artworkImage: nil
     )
 }

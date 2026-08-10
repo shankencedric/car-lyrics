@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct CarLyricsWidgetBundle: WidgetBundle {
     var body: some Widget {
+        CarLyricsSmallDualWidget()
         CarLyricsWidget()
         CarLyricsWidgetLiveActivity()
     }
