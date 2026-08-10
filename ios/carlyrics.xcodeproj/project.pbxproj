@@ -14,10 +14,10 @@
 		8BC5F1F5302A38B600CB0BCB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC5F1F4302A38B500CB0BCB /* WidgetKit.framework */; };
 		8BC5F1F7302A38B600CB0BCB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC5F1F6302A38B600CB0BCB /* SwiftUI.framework */; };
 		8BC5F208302A38C000CB0BCB /* CarLyricsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8BC5F1F3302A38B500CB0BCB /* CarLyricsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8BC5F211302A3D3D00CB0BCB /* AppGroupModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F20F302A3D3C00CB0BCB /* AppGroupModule.m */; };
-		8BC5F212302A3D3D00CB0BCB /* AppGroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F210302A3D3C00CB0BCB /* AppGroupModule.swift */; };
-		8BC5F215302A414C00CB0BCB /* LiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F213302A414C00CB0BCB /* LiveActivityModule.m */; };
-		8BC5F216302A414C00CB0BCB /* LiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F214302A414C00CB0BCB /* LiveActivityModule.swift */; };
+		8BC5F223302A484200CB0BCB /* AppGroupModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F21F302A484200CB0BCB /* AppGroupModule.m */; };
+		8BC5F224302A484200CB0BCB /* LiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F221302A484200CB0BCB /* LiveActivityModule.m */; };
+		8BC5F225302A484200CB0BCB /* LiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */; };
+		8BC5F226302A484200CB0BCB /* AppGroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F220302A484200CB0BCB /* AppGroupModule.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		D205F5238FBBEB27698C2BD2 /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24319D49DF0AD911B3750141 /* libPods-carlyrics.a */; };
 		E447E129FCED638160B209B7 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C958903400A6E70023B31C6 /* ExpoModulesProvider.swift */; };
@@ -58,10 +58,10 @@
 		8BC5F1F4302A38B500CB0BCB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		8BC5F1F6302A38B600CB0BCB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BC5F20E302A38DD00CB0BCB /* CarLyricsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarLyricsWidgetExtension.entitlements; sourceTree = "<group>"; };
-		8BC5F20F302A3D3C00CB0BCB /* AppGroupModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppGroupModule.m; sourceTree = "<group>"; };
-		8BC5F210302A3D3C00CB0BCB /* AppGroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupModule.swift; sourceTree = "<group>"; };
-		8BC5F213302A414C00CB0BCB /* LiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveActivityModule.m; sourceTree = "<group>"; };
-		8BC5F214302A414C00CB0BCB /* LiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityModule.swift; sourceTree = "<group>"; };
+		8BC5F21F302A484200CB0BCB /* AppGroupModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppGroupModule.m; path = carlyrics/AppGroupModule.m; sourceTree = "<group>"; };
+		8BC5F220302A484200CB0BCB /* AppGroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppGroupModule.swift; path = carlyrics/AppGroupModule.swift; sourceTree = "<group>"; };
+		8BC5F221302A484200CB0BCB /* LiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LiveActivityModule.m; path = carlyrics/LiveActivityModule.m; sourceTree = "<group>"; };
+		8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiveActivityModule.swift; path = carlyrics/LiveActivityModule.swift; sourceTree = "<group>"; };
 		8C958903400A6E70023B31C6 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		A8952D2C7C0E4E138E985AC3 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = carlyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
@@ -119,10 +119,10 @@
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
 				A8952D2C7C0E4E138E985AC3 /* expo.icon */,
 				CCAF8B42347860545138810F /* PrivacyInfo.xcprivacy */,
-				8BC5F20F302A3D3C00CB0BCB /* AppGroupModule.m */,
-				8BC5F210302A3D3C00CB0BCB /* AppGroupModule.swift */,
-				8BC5F213302A414C00CB0BCB /* LiveActivityModule.m */,
-				8BC5F214302A414C00CB0BCB /* LiveActivityModule.swift */,
+				8BC5F21F302A484200CB0BCB /* AppGroupModule.m */,
+				8BC5F220302A484200CB0BCB /* AppGroupModule.swift */,
+				8BC5F221302A484200CB0BCB /* LiveActivityModule.m */,
+				8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */,
 			);
 			name = carlyrics;
 			sourceTree = "<group>";
@@ -443,11 +443,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC5F215302A414C00CB0BCB /* LiveActivityModule.m in Sources */,
-				8BC5F216302A414C00CB0BCB /* LiveActivityModule.swift in Sources */,
-				8BC5F211302A3D3D00CB0BCB /* AppGroupModule.m in Sources */,
-				8BC5F212302A3D3D00CB0BCB /* AppGroupModule.swift in Sources */,
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
+				8BC5F223302A484200CB0BCB /* AppGroupModule.m in Sources */,
+				8BC5F224302A484200CB0BCB /* LiveActivityModule.m in Sources */,
+				8BC5F225302A484200CB0BCB /* LiveActivityModule.swift in Sources */,
+				8BC5F226302A484200CB0BCB /* AppGroupModule.swift in Sources */,
 				E447E129FCED638160B209B7 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

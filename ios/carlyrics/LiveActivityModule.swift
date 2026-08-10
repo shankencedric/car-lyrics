@@ -1,6 +1,17 @@
 import Foundation
 import ActivityKit
 
+// 1. Local Attributes Definition (Matches Widget extension 1:1 for ActivityKit bridge)
+public struct CarLyricsWidgetAttributes: ActivityAttributes {
+    public struct ContentState: Codable, Hashable {
+        var title: String
+        var artist: String
+        var lyric: String
+    }
+    var name: String
+}
+
+// 2. React Native Bridge Module
 @objc(LiveActivityModule)
 class LiveActivityModule: NSObject {
   @objc static func requiresMainQueueSetup() -> Bool { return false }
