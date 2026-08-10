@@ -1,4 +1,3 @@
-// src/adapters/WidgetPresenter.ts
 import { NativeModules, Platform } from 'react-native';
 
 const { AppGroupModule } = NativeModules;
@@ -24,7 +23,7 @@ export class WidgetPresenter {
                 artworkUrl || ''
             );
         } catch {
-            // Gracefully handle background bridge updates
+            // Silently handle native bridge failures during background updates
         }
     }
 }
