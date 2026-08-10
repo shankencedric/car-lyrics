@@ -2,79 +2,94 @@
 //  CarLyricsWidgetLiveActivity.swift
 //  CarLyricsWidget
 //
-//  Created by Sean Ken Cedric Legara on 8/10/26.
-//
 
 import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct CarLyricsWidgetAttributes: ActivityAttributes {
+// 1. DATA MODEL: Matched to LiveActivityModule.swift
+public struct CarLyricsWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var emoji: String
+        var title: String
+        var artist: String
+        var lyric: String
     }
-
-    // Fixed non-changing properties about your activity go here!
     var name: String
 }
 
+// 2. LIVE ACTIVITY & DYNAMIC ISLAND UI
 struct CarLyricsWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: CarLyricsWidgetAttributes.self) { context in
-            // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello \(context.state.emoji)")
+            // Lock Screen Banner UI
+            HStack(spacing: 12) {
+                Image(systemName: "music.note.list")
+                    .font(.title2)
+                    .foregroundColor(.green)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        Text(context.state.title)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.green)
+                            .lineLimit(1)
+                        Text("• \(context.state.artist)")
+                            .font(.caption2)
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
+                    }
+
+                    Text(context.state.lyric)
+                        .font(.system(size: 15, weight: .semibold, design: .rounded))
+                        .foregroundColor(.white)
+                        .lineLimit(2)
+                }
+                Spacer()
             }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
+            .padding()
+            .activityBackgroundTint(Color.black)
 
         } dynamicIsland: { context in
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
+                // Expanded View (Long Press on Dynamic Island)
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    HStack(spacing: 4) {
+                        Image(systemName: "music.note")
+                            .foregroundColor(.green)
+                        Text(context.state.title)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    Text(context.state.artist)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                        .lineLimit(1)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
-                    // more content
+                    Text(context.state.lyric)
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 4)
                 }
             } compactLeading: {
-                Text("L")
+                Image(systemName: "music.note")
+                    .foregroundColor(.green)
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text(context.state.title)
+                    .font(.caption2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 80)
             } minimal: {
-                Text(context.state.emoji)
+                Image(systemName: "music.note")
+                    .foregroundColor(.green)
             }
-            .widgetURL(URL(string: "http://www.apple.com"))
-            .keylineTint(Color.red)
         }
     }
-}
-
-extension CarLyricsWidgetAttributes {
-    fileprivate static var preview: CarLyricsWidgetAttributes {
-        CarLyricsWidgetAttributes(name: "World")
-    }
-}
-
-extension CarLyricsWidgetAttributes.ContentState {
-    fileprivate static var smiley: CarLyricsWidgetAttributes.ContentState {
-        CarLyricsWidgetAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: CarLyricsWidgetAttributes.ContentState {
-         CarLyricsWidgetAttributes.ContentState(emoji: "🤩")
-     }
-}
-
-#Preview("Notification", as: .content, using: CarLyricsWidgetAttributes.preview) {
-   CarLyricsWidgetLiveActivity()
-} contentStates: {
-    CarLyricsWidgetAttributes.ContentState.smiley
-    CarLyricsWidgetAttributes.ContentState.starEyes
 }

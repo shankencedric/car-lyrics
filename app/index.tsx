@@ -5,6 +5,7 @@ import { LyricViewer } from '../src/presentation/components/LyricViewer';
 import { useLiveActivitySync } from '../src/presentation/hooks/useLiveActivitySync';
 import { useMusicSync } from '../src/presentation/hooks/useMusicSync';
 import { useWidgetSync } from '../src/presentation/hooks/useWidgetSync';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
     const {
@@ -23,7 +24,8 @@ export default function App() {
     // 2. WidgetKit (Home Screen, Lock Screen, & CarPlay Widget Stack)
     useWidgetSync(currentTrack, lyrics, activeLineIndex);
 
-    return (
+    return ( 
+    <GestureHandlerRootView style={styles.root}>
         <SafeAreaProvider>
             <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
                 <StatusBar barStyle="light-content" />
@@ -57,6 +59,7 @@ export default function App() {
                 </View>
             </SafeAreaView>
         </SafeAreaProvider>
+    </GestureHandlerRootView>
     );
 }
 

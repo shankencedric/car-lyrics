@@ -5,6 +5,7 @@ import { SyncedLyrics, TrackMetadata } from '../../domain/models/lyrics';
 const lyricsRepository = new LrclibRepository();
 
 export function useMusicSync() {
+
     const [currentTrack, setCurrentTrack] = useState<TrackMetadata | null>(null);
     const [lyrics, setLyrics] = useState<SyncedLyrics | null>(null);
     const [currentTimeMs, setCurrentTimeMs] = useState<number>(0);
