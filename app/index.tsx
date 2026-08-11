@@ -85,13 +85,21 @@ export default function App() {
     handleTimeUpdate,
     handlePlaybackStateChange,
     resetSync,
+    currentTimeMs,
   } = useMusicSync();
 
   // 1. Live Activities (Dynamic Island / Lock Screen banner)
   useLiveActivitySync(currentTrack, lyrics, activeLineIndex);
 
   // 2. WidgetKit (Home Screen, Lock Screen, & CarPlay Widget Stack)
-  useWidgetSync(currentTrack, lyrics, activeLineIndex, isPlaying, currentPlatform.name);
+  useWidgetSync(
+    currentTrack,
+    lyrics,
+    activeLineIndex,
+    isPlaying,
+    currentPlatform.name,
+    currentTimeMs
+  );
 
   const handleSelectPlatform = (preset: PlatformPreset) => {
     if (preset.id === currentPlatform.id) {

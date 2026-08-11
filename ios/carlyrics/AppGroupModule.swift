@@ -5,7 +5,7 @@ import WidgetKit
 class AppGroupModule: NSObject {
   @objc static func requiresMainQueueSetup() -> Bool { return false }
 
-  @objc(setLyricsData:artist:previousLine:currentLine:nextLine:followingLine:artworkUrl:platform:)
+  @objc(setLyricsData:artist:previousLine:currentLine:nextLine:followingLine:artworkUrl:platform:progress:)
   func setLyricsData(
     _ title: String,
     artist: String,
@@ -14,7 +14,8 @@ class AppGroupModule: NSObject {
     nextLine: String,
     followingLine: String,
     artworkUrl: String,
-    platform: String
+    platform: String,
+    progress: Double
   ) {
     let defaults = UserDefaults(suiteName: "group.com.shankencedric.carlyrics")
     defaults?.set(title, forKey: "currentTitle")
@@ -25,6 +26,7 @@ class AppGroupModule: NSObject {
     defaults?.set(followingLine, forKey: "followingLyric")
     defaults?.set(artworkUrl, forKey: "currentArtworkUrl")
     defaults?.set(platform, forKey: "widgetPlatform")
+    defaults?.set(progress, forKey: "progress")
     defaults?.synchronize()
 
     if #available(iOS 14.0, *) {
