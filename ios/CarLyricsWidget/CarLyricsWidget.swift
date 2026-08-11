@@ -111,11 +111,8 @@ struct Provider: TimelineProvider {
         let progress = defaults?.double(forKey: AppGroup.Keys.progress) ?? 0.0
         let platform = defaults?.string(forKey: AppGroup.Keys.platform) ?? ""
 
-        var artworkImage: UIImage? = nil
-        if let artworkPath = defaults?.string(forKey: AppGroup.Keys.artworkPath),
-           let image = UIImage(contentsOfFile: artworkPath) {
-            artworkImage = image
-        }
+        let artworkPath = defaults?.string(forKey: AppGroup.Keys.artworkPath)
+        let artworkImage = loadArtwork(from: artworkPath)
 
         return SimpleEntry(
             date: Date(),
@@ -129,6 +126,30 @@ struct Provider: TimelineProvider {
             artworkImage: artworkImage,
             platform: platform
         )
+    }
+
+    // Robust Artwork Piping Helper (Supports POSIX path, file:// URI, and remote HTTP/HTTPS URLs)
+    private func loadArtwork(from pathOrUrl: String?) -> UIImage? {
+        guard let rawPath = pathOrUrl?.trimmingCharacters(in: .whitespacesAndNewlines), !rawPath.isEmpty else {
+            return nil
+        }
+
+        // 1. Direct POSIX File Path
+        if FileManager.default.fileExists(atPath: rawPath), let image = UIImage(contentsOfFile: rawPath) {
+            return image
+        }
+
+        // 2. file:// URL String
+        if rawPath.hasPrefix("file://"), let url = URL(string: rawPath), let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)
+        }
+
+        // 3. Remote Web URL (http/https)
+        if (rawPath.hasPrefix("http://") || rawPath.hasPrefix("https://")), let url = URL(string: rawPath), let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)
+        }
+
+        return nil
     }
 }
 
@@ -254,8 +275,9 @@ struct SystemSmallView: View {
 struct SystemSmallDualView: View {
     let entry: SimpleEntry
 
+    // Adjusted threshold from 22 to 28 characters to prevent premature wrapping
     private var isTitleLong: Bool {
-        entry.title.count > 22
+        entry.title.count > 28
     }
 
     var body: some View {
