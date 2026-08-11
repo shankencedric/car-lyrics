@@ -193,9 +193,9 @@ struct SystemSmallView: View {
     let entry: SimpleEntry
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .center, spacing: 6) {
             ViewThatFits(in: .vertical) {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .center, spacing: 4) {
                     HStack(spacing: 4) {
                         Image(systemName: "music.note")
                             .foregroundColor(.green)
@@ -217,18 +217,20 @@ struct SystemSmallView: View {
                     Text(entry.lyric)
                         .font(.system(size: 15, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.7)
                         .fixedSize(horizontal: false, vertical: true)
 
                     Spacer(minLength: 0)
                 }
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Spacer(minLength: 0)
 
                     Text(entry.lyric)
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                         .minimumScaleFactor(0.65)
                         .fixedSize(horizontal: false, vertical: true)
 
@@ -236,7 +238,7 @@ struct SystemSmallView: View {
                 }
             }
         }
-        .padding()
+        .padding(12)
     }
 }
 
@@ -244,12 +246,57 @@ struct SystemSmallView: View {
 struct SystemSmallDualView: View {
     let entry: SimpleEntry
 
+    private var isTitleLong: Bool {
+        entry.title.count > 22
+    }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             ViewThatFits(in: .vertical) {
-                // Tier 1 (Best Case): Title • Artist + Current Line (Full) + Next Line (Full or Truncated)
-                VStack(alignment: .leading, spacing: 3) {
-                    headerView
+                if !isTitleLong {
+                    // --- FLOW A: Short Title (Fits on Line 1) ---
+
+                    // Tier 1A: Full Header (Title on Line 1, Artist on Line 2) + Current + Next
+                    VStack(alignment: .center, spacing: 3) {
+                        titleLine1ArtistLine2Header
+                        Spacer(minLength: 2)
+                        currentLineStandard
+                        if let next = entry.nextLyric, !next.isEmpty {
+                            nextLineText(next, size: 11)
+                        }
+                        Spacer(minLength: 2)
+                    }
+
+                    // Tier 2A: Artist Disappears First -> Title Only (Line 1) + Current + Next
+                    VStack(alignment: .center, spacing: 3) {
+                        titleOnlyHeader
+                        Spacer(minLength: 2)
+                        currentLineStandard
+                        if let next = entry.nextLyric, !next.isEmpty {
+                            nextLineText(next, size: 11)
+                        }
+                        Spacer(minLength: 2)
+                    }
+                } else {
+                    // --- FLOW B: Long Title (Wraps to Line 2) ---
+
+                    // Tier 1B: Title wraps to Line 2 + " • Artist" appended + Current + Next
+                    VStack(alignment: .center, spacing: 3) {
+                        wrappedTitleArtistHeader
+                        Spacer(minLength: 2)
+                        currentLineStandard
+                        if let next = entry.nextLyric, !next.isEmpty {
+                            nextLineText(next, size: 11)
+                        }
+                        Spacer(minLength: 2)
+                    }
+                    // (Note: If Tier 1B overflows vertically, both Title and Artist drop TOGETHER to Tier 3)
+                }
+
+                // --- COMMON FALLBACK TIERS ---
+
+                // Tier 3: Header Dropped Completely + Current Line + Next Line
+                VStack(alignment: .center, spacing: 3) {
                     Spacer(minLength: 2)
                     currentLineStandard
                     if let next = entry.nextLyric, !next.isEmpty {
@@ -258,19 +305,8 @@ struct SystemSmallDualView: View {
                     Spacer(minLength: 2)
                 }
 
-                // Tier 2 (Next Best Case): Current Line (Full, Standard Size) + Next Line (Truncated)
-                VStack(alignment: .leading, spacing: 3) {
-                    Spacer(minLength: 2)
-                    currentLineStandard
-                    if let next = entry.nextLyric, !next.isEmpty {
-                        nextLineText(next, size: 11)
-                    }
-                    Spacer(minLength: 2)
-                }
-
-                // Tier 3 (Next Next Best Case): Current Line (Full, Adapted/Smaller Size) + Next Line (Truncated)
-                // Font size adapts down to guarantee both current line and next line stay visible together
-                VStack(alignment: .leading, spacing: 2) {
+                // Tier 4: Header Dropped + Adapted Current Line (Smaller) + Next Line
+                VStack(alignment: .center, spacing: 2) {
                     Spacer(minLength: 2)
                     currentLineAdapted
                     if let next = entry.nextLyric, !next.isEmpty {
@@ -279,21 +315,41 @@ struct SystemSmallDualView: View {
                     Spacer(minLength: 2)
                 }
 
-                // Tier 4 (Worst Case): Only Current Line (100% space allocated, scales down so it NEVER cuts off)
-                VStack(alignment: .leading, spacing: 0) {
+                // Tier 5: Worst Case Failsafe -> Current Line ONLY (Centered, scales down to 0.5x)
+                VStack(alignment: .center, spacing: 0) {
                     Spacer(minLength: 0)
                     currentLineFailsafe
                     Spacer(minLength: 0)
                 }
             }
         }
-        .padding(10)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(12)
         .containerBackground(.black, for: .widget)
         .widgetURL(URL(string: "carlyrics://"))
     }
 
-    // Title & Artist Header
-    private var headerView: some View {
+    // Header 1: Title on Line 1, Artist on Line 2
+    private var titleLine1ArtistLine2Header: some View {
+        VStack(alignment: .center, spacing: 1) {
+            HStack(spacing: 3) {
+                Image(systemName: "music.note")
+                    .foregroundColor(.green)
+                    .font(.system(size: 8, weight: .bold))
+                Text(entry.title)
+                    .font(.system(size: 8, weight: .bold))
+                    .foregroundColor(.white.opacity(0.85))
+                    .lineLimit(1)
+            }
+            Text(entry.artist)
+                .font(.system(size: 7.5, weight: .medium))
+                .foregroundColor(.white.opacity(0.65))
+                .lineLimit(1)
+        }
+    }
+
+    // Header 2: Wrapped Title + Artist (Title continues to line 2 with separation)
+    private var wrappedTitleArtistHeader: some View {
         HStack(spacing: 3) {
             Image(systemName: "music.note")
                 .foregroundColor(.green)
@@ -301,45 +357,67 @@ struct SystemSmallDualView: View {
             Text("\(entry.title) • \(entry.artist)")
                 .font(.system(size: 8, weight: .bold))
                 .foregroundColor(.white.opacity(0.85))
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    // Header 3: Title Only (Artist dropped first)
+    private var titleOnlyHeader: some View {
+        HStack(spacing: 3) {
+            Image(systemName: "music.note")
+                .foregroundColor(.green)
+                .font(.system(size: 8, weight: .bold))
+            Text(entry.title)
+                .font(.system(size: 8, weight: .bold))
+                .foregroundColor(.white.opacity(0.85))
                 .lineLimit(1)
         }
     }
 
-    // Standard Size Current Line (lineLimit(nil) forces ViewThatFits to drop tier if text overflows)
+    // Standard Current Line
     private var currentLineStandard: some View {
         Text(entry.lyric)
             .font(.system(size: 13, weight: .bold, design: .rounded))
             .foregroundColor(.white)
+            .multilineTextAlignment(.center)
             .lineLimit(nil)
             .minimumScaleFactor(0.85)
+            .frame(maxWidth: .infinity)
     }
 
-    // Adapted/Smaller Size Current Line (Increases layout headroom to keep Next Line visible)
+    // Adapted Current Line (Smaller font size)
     private var currentLineAdapted: some View {
         Text(entry.lyric)
             .font(.system(size: 11, weight: .bold, design: .rounded))
             .foregroundColor(.white)
+            .multilineTextAlignment(.center)
             .lineLimit(nil)
             .minimumScaleFactor(0.75)
+            .frame(maxWidth: .infinity)
     }
 
-    // Next Line (Truncates gracefully with "..." if space requires)
+    // Next Line
     private func nextLineText(_ text: String, size: CGFloat) -> some View {
         Text(text)
             .font(.system(size: size, weight: .semibold, design: .rounded))
             .foregroundColor(.white.opacity(0.75))
+            .multilineTextAlignment(.center)
             .lineLimit(2)
             .minimumScaleFactor(0.8)
+            .frame(maxWidth: .infinity)
     }
 
-    // Tier 4 Failsafe Current Line (Takes 100% vertical space and scales down to 0.5x)
+    // Failsafe Current Line
     private var currentLineFailsafe: some View {
         Text(entry.lyric)
             .font(.system(size: 14, weight: .bold, design: .rounded))
             .foregroundColor(.white)
+            .multilineTextAlignment(.center)
             .lineLimit(4)
             .minimumScaleFactor(0.5)
             .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -482,11 +560,11 @@ struct SystemLargeView: View {
 
             Spacer(minLength: 0)
 
-            // Ultra-Minimal Low-Priority Indicator Footer
             if !entry.platform.isEmpty {
                 Text("streaming from \(entry.platform)")
-                    .font(.system(size: 8, weight: .regular, design: .rounded))
-                    .foregroundColor(.white.opacity(0.35))
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.white.opacity(0.5))
                     .lineLimit(1)
             }
         }
@@ -575,8 +653,9 @@ struct SystemExtraLargeView: View {
 
                 if !entry.platform.isEmpty {
                     Text("streaming from \(entry.platform)")
-                        .font(.system(size: 9, weight: .regular, design: .rounded))
-                        .foregroundColor(.white.opacity(0.4))
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.green)
                         .lineLimit(1)
                 }
 
@@ -689,6 +768,7 @@ struct CarLyricsWidget: Widget {
             .accessoryCircular,
             .accessoryRectangular
         ])
+        .contentMarginsDisabled()
     }
 }
 
@@ -703,6 +783,7 @@ struct CarLyricsSmallDualWidget: Widget {
         .configurationDisplayName("Lyrics - Active & Next")
         .description("Displays current and upcoming lyric lines in a small tile.")
         .supportedFamilies([.systemSmall])
+        .contentMarginsDisabled()
     }
 }
 
