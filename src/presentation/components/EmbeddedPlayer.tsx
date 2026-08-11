@@ -25,25 +25,20 @@ const BACKGROUND_PLAYBACK_BYPASS = `
 `;
 
 interface EmbeddedPlayerProps {
+  url?: string;
   onTrackChange?: (track: any) => void;
   onTimeUpdate?: (timeMs: number) => void;
   onPlaybackStateChange?: (isPlaying: boolean) => void;
-  onMessage?: (event: any) => void;
 }
 
 export function EmbeddedPlayer({
+  url = 'https://music.youtube.com',
   onTrackChange,
   onTimeUpdate,
   onPlaybackStateChange,
-  onMessage,
 }: EmbeddedPlayerProps) {
 
   const handleBridgeMessage = (event: any) => {
-    // Forward to generic onMessage if provided
-    if (onMessage) {
-      onMessage(event);
-    }
-
     try {
       const data = JSON.parse(event.nativeEvent.data);
 
@@ -70,14 +65,15 @@ export function EmbeddedPlayer({
         onPlaybackStateChange(data.payload.isPlaying);
       }
     } catch {
-      // Ignore non-JSON messages
+      // Ignore non-JSON bridge messages
     }
   };
 
   return (
     <View style={styles.container}>
       <WebView
-        source={{ uri: 'https://music.youtube.com' }}
+        key={url} // Force remount on URL change
+        source={{ uri: url }}
         injectedJavaScriptBeforeContentLoaded={BACKGROUND_PLAYBACK_BYPASS}
         injectedJavaScript={YTM_OBSERVER_SCRIPT}
         onMessage={handleBridgeMessage}
@@ -97,6 +93,6 @@ export function EmbeddedPlayer({
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#1c1c1e' },
+  container: { flex: 1, backgroundColor: '#000000' },
   webview: { flex: 1, backgroundColor: '#000000' },
 });

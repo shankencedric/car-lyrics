@@ -21,6 +21,7 @@ private enum AppGroup {
         static let followingLyric = "followingLyric"
         static let progress = "progress"
         static let artworkPath = "currentArtworkUrl"
+        static let platform = "widgetPlatform"
     }
 }
 
@@ -35,6 +36,7 @@ struct SimpleEntry: TimelineEntry {
     let followingLyric: String?
     let progress: Double
     let artworkImage: UIImage?
+    let platform: String
 
     static var placeholder: SimpleEntry {
         SimpleEntry(
@@ -46,7 +48,8 @@ struct SimpleEntry: TimelineEntry {
             nextLyric: "Caught in a landslide, no escape from reality",
             followingLyric: "Open your eyes, look up to the skies and see",
             progress: 0.35,
-            artworkImage: nil
+            artworkImage: nil,
+            platform: "YouTube Music"
         )
     }
 
@@ -60,7 +63,8 @@ struct SimpleEntry: TimelineEntry {
             nextLyric: nil,
             followingLyric: nil,
             progress: 0.0,
-            artworkImage: nil
+            artworkImage: nil,
+            platform: "YouTube Music"
         )
     }
 }
@@ -96,6 +100,7 @@ struct Provider: TimelineProvider {
         let nextLyric = defaults?.string(forKey: AppGroup.Keys.nextLyric)
         let followingLyric = defaults?.string(forKey: AppGroup.Keys.followingLyric)
         let progress = defaults?.double(forKey: AppGroup.Keys.progress) ?? 0.0
+        let platform = defaults?.string(forKey: AppGroup.Keys.platform) ?? "YouTube Music"
 
         var artworkImage: UIImage? = nil
         if let artworkPath = defaults?.string(forKey: AppGroup.Keys.artworkPath),
@@ -112,7 +117,8 @@ struct Provider: TimelineProvider {
             nextLyric: nextLyric,
             followingLyric: followingLyric,
             progress: progress,
-            artworkImage: artworkImage
+            artworkImage: artworkImage,
+            platform: platform
         )
     }
 }
@@ -244,28 +250,28 @@ struct SystemSmallDualView: View {
                 // Tier 1: Title Header + Active Line + Next Line
                 VStack(alignment: .leading, spacing: 4) {
                     headerView
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 2)
                     activeLineText
                     if let next = entry.nextLyric, !next.isEmpty {
                         nextLineText(next)
                     }
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 2)
                 }
 
                 // Tier 2: Active Line + Next Line (Hides Title Header for extra vertical room)
                 VStack(alignment: .leading, spacing: 4) {
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 2)
                     activeLineText
                     if let next = entry.nextLyric, !next.isEmpty {
                         nextLineText(next)
                     }
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 2)
                 }
 
-                // Tier 3: Active Line Only (Failsafe ensuring Priority 1 is never truncated)
-                VStack(alignment: .leading) {
+                // Tier 3: Active Line Only (Failsafe: Header & Next Line hidden, Active Line gets 100% room without truncation)
+                VStack(alignment: .leading, spacing: 0) {
                     Spacer(minLength: 0)
-                    activeLineText
+                    activeLineTextUnlimited
                     Spacer(minLength: 0)
                 }
             }
@@ -296,6 +302,14 @@ struct SystemSmallDualView: View {
             .fixedSize(horizontal: false, vertical: true)
     }
 
+    private var activeLineTextUnlimited: some View {
+        Text(entry.lyric)
+            .font(.system(size: 14, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .minimumScaleFactor(0.55)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
     private func nextLineText(_ text: String) -> some View {
         Text(text)
             .font(.system(size: 11, weight: .semibold, design: .rounded))
@@ -305,6 +319,7 @@ struct SystemSmallDualView: View {
             .fixedSize(horizontal: false, vertical: true)
     }
 }
+
 // MARK: - 5. System Medium View (systemMedium)
 struct SystemMediumView: View {
     let entry: SimpleEntry
@@ -443,6 +458,14 @@ struct SystemLargeView: View {
             }
 
             Spacer(minLength: 0)
+
+            // Ultra-Minimal Low-Priority Indicator Footer
+            if !entry.platform.isEmpty {
+                Text("streaming from \(entry.platform)")
+                    .font(.system(size: 8, weight: .regular, design: .rounded))
+                    .foregroundColor(.white.opacity(0.35))
+                    .lineLimit(1)
+            }
         }
         .padding()
     }
@@ -526,6 +549,13 @@ struct SystemExtraLargeView: View {
 
                 ProgressView(value: entry.progress)
                     .tint(.green)
+
+                if !entry.platform.isEmpty {
+                    Text("streaming from \(entry.platform)")
+                        .font(.system(size: 9, weight: .regular, design: .rounded))
+                        .foregroundColor(.white.opacity(0.4))
+                        .lineLimit(1)
+                }
 
                 Spacer(minLength: 0)
             }
@@ -666,6 +696,7 @@ struct CarLyricsSmallDualWidget: Widget {
         nextLyric: "Caught in a landslide, no escape from reality",
         followingLyric: "Open your eyes, look up to the skies and see",
         progress: 0.2,
-        artworkImage: nil
+        artworkImage: nil,
+        platform: "YouTube Music"
     )
 }

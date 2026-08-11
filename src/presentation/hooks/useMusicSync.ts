@@ -25,6 +25,21 @@ export function useMusicSync() {
         timestamp: Date.now(),
     });
 
+    // Reset sync state when switching streaming platforms
+    const resetSync = useCallback(() => {
+        activeTrackKeyRef.current = '';
+        setCurrentTrack(null);
+        setLyrics(null);
+        setCurrentTimeMs(0);
+        setIsPlaying(false);
+        setIsLoadingLyrics(false);
+        syncAnchorRef.current = {
+            baseTimeMs: 0,
+            isPlaying: false,
+            timestamp: Date.now(),
+        };
+    }, []);
+
     // 1. Fetch Lyrics from LrclibRepository
     const handleTrackChange = useCallback(async (newTrack: TrackMetadata) => {
         if (!newTrack || !newTrack.title) return;
@@ -68,7 +83,6 @@ export function useMusicSync() {
     }, []);
 
     // 4. Native React Native Local Extrapolation Loop
-    // Keeps currentTimeMs advancing in JS even when iOS throttles the WebView in background
     useEffect(() => {
         const interval = setInterval(() => {
             const { baseTimeMs, isPlaying: playing, timestamp } = syncAnchorRef.current;
@@ -106,5 +120,6 @@ export function useMusicSync() {
         handleTrackChange,
         handleTimeUpdate,
         handlePlaybackStateChange,
+        resetSync,
     };
 }

@@ -7,5 +7,6 @@ RCT_EXTERN_METHOD(setLyricsData:(NSString *)title
                   currentLine:(NSString *)currentLine
                   nextLine:(NSString *)nextLine
                   followingLine:(NSString *)followingLine
-                  artworkUrl:(NSString *)artworkUrl)
+                  artworkUrl:(NSString *)artworkUrl
+                  platform:(NSString *)platform)
 @end
