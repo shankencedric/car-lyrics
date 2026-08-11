@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "car-lyrics",
-    "slug": "car-lyrics",
+    "name": "live-lyrics",
+    "slug": "live-lyrics",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "carlyrics",
+    "scheme": "livelyrics",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
       "supportsTablet": true,
-      "bundleIdentifier": "com.shankencedric.carlyrics",
+      "bundleIdentifier": "com.shankencedric.livelyrics",
       "infoPlist": {
         "NSSupportsLiveActivities": true,
         "NSSupportsLiveActivitiesFrequentUpdates": true,
@@ -29,7 +29,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.shankencedric.carlyrics"
+      "package": "com.shankencedric.livelyrics"
     },
     "web": {
       "output": "static",

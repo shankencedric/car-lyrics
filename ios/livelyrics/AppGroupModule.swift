@@ -17,7 +17,7 @@ class AppGroupModule: NSObject {
     platform: String,
     progress: Double
   ) {
-    let defaults = UserDefaults(suiteName: "group.com.shankencedric.carlyrics")
+    let defaults = UserDefaults(suiteName: "group.com.shankencedric.livelyrics")
     defaults?.set(title, forKey: "currentTitle")
     defaults?.set(artist, forKey: "currentArtist")
     defaults?.set(previousLine, forKey: "previousLyric")

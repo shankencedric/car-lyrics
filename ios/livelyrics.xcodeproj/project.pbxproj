@@ -8,40 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		20245D87EFFD7D1965E6320C /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA6D5DB425BDE73C889382E /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		47BA78D36DEC0B384FC37099 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CCAF8B42347860545138810F /* PrivacyInfo.xcprivacy */; };
-		754731ADC4EA415D9DD6E33D /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = A8952D2C7C0E4E138E985AC3 /* expo.icon */; };
-		8BC5F1F5302A38B600CB0BCB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC5F1F4302A38B500CB0BCB /* WidgetKit.framework */; };
-		8BC5F1F7302A38B600CB0BCB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC5F1F6302A38B600CB0BCB /* SwiftUI.framework */; };
-		8BC5F208302A38C000CB0BCB /* CarLyricsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8BC5F1F3302A38B500CB0BCB /* CarLyricsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8BC5F223302A484200CB0BCB /* AppGroupModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F21F302A484200CB0BCB /* AppGroupModule.m */; };
-		8BC5F224302A484200CB0BCB /* LiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F221302A484200CB0BCB /* LiveActivityModule.m */; };
-		8BC5F225302A484200CB0BCB /* LiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */; };
-		8BC5F226302A484200CB0BCB /* AppGroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5F220302A484200CB0BCB /* AppGroupModule.swift */; };
+		4AC248C29A1A46199A971963 /* expo.icon in Resources */ = {isa = PBXBuildFile; fileRef = AD478F9159364771B1CCC4E2 /* expo.icon */; };
+		8B277223302B2435009C044E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B277222302B2434009C044E /* WidgetKit.framework */; };
+		8B277225302B2435009C044E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B277224302B2435009C044E /* SwiftUI.framework */; };
+		8B277236302B243D009C044E /* LiveLyricsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8B277221302B2433009C044E /* LiveLyricsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B277241302B258A009C044E /* LiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B27723F302B258A009C044E /* LiveActivityModule.m */; };
+		8B277242302B258A009C044E /* AppGroupModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27723E302B258A009C044E /* AppGroupModule.swift */; };
+		8B277243302B258A009C044E /* AppGroupModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B27723D302B258A009C044E /* AppGroupModule.m */; };
+		8B277244302B258A009C044E /* LiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B277240302B258A009C044E /* LiveActivityModule.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D205F5238FBBEB27698C2BD2 /* libPods-carlyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24319D49DF0AD911B3750141 /* libPods-carlyrics.a */; };
-		E447E129FCED638160B209B7 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C958903400A6E70023B31C6 /* ExpoModulesProvider.swift */; };
+		D836D0E45355B8E98F4E6B3B /* libPods-livelyrics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A40CC217FDA60776F57F634 /* libPods-livelyrics.a */; };
+		EF56CE36A70CDE7591788F02 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 15420DB520EAB6FAD784D54A /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8BC5F206302A38C000CB0BCB /* PBXContainerItemProxy */ = {
+		8B277234302B243D009C044E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8BC5F1F2302A38B500CB0BCB;
-			remoteInfo = CarLyricsWidgetExtension;
+			remoteGlobalIDString = 8B277220302B2433009C044E;
+			remoteInfo = LiveLyricsWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8BC5F209302A38C000CB0BCB /* Embed Foundation Extensions */ = {
+		8B27723B302B243D009C044E /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8BC5F208302A38C000CB0BCB /* CarLyricsWidgetExtension.appex in Embed Foundation Extensions */,
+				8B277236302B243D009C044E /* LiveLyricsWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,42 +49,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* carlyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carlyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = carlyrics/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = carlyrics/Info.plist; sourceTree = "<group>"; };
-		24319D49DF0AD911B3750141 /* libPods-carlyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-carlyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75F9F90BAC20967BB86B644C /* Pods-carlyrics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.debug.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.debug.xcconfig"; sourceTree = "<group>"; };
-		8BC5F1F3302A38B500CB0BCB /* CarLyricsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarLyricsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC5F1F4302A38B500CB0BCB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		8BC5F1F6302A38B600CB0BCB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		8BC5F20E302A38DD00CB0BCB /* CarLyricsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarLyricsWidgetExtension.entitlements; sourceTree = "<group>"; };
-		8BC5F21F302A484200CB0BCB /* AppGroupModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppGroupModule.m; path = carlyrics/AppGroupModule.m; sourceTree = "<group>"; };
-		8BC5F220302A484200CB0BCB /* AppGroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppGroupModule.swift; path = carlyrics/AppGroupModule.swift; sourceTree = "<group>"; };
-		8BC5F221302A484200CB0BCB /* LiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LiveActivityModule.m; path = carlyrics/LiveActivityModule.m; sourceTree = "<group>"; };
-		8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiveActivityModule.swift; path = carlyrics/LiveActivityModule.swift; sourceTree = "<group>"; };
-		8C958903400A6E70023B31C6 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		A8952D2C7C0E4E138E985AC3 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = carlyrics/expo.icon; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = carlyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* livelyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livelyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = livelyrics/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = livelyrics/Info.plist; sourceTree = "<group>"; };
+		15420DB520EAB6FAD784D54A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = livelyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2BA6D5DB425BDE73C889382E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-livelyrics/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		6687DFB0C800E26F0B1699ED /* Pods-livelyrics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livelyrics.debug.xcconfig"; path = "Target Support Files/Pods-livelyrics/Pods-livelyrics.debug.xcconfig"; sourceTree = "<group>"; };
+		8B277221302B2433009C044E /* LiveLyricsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveLyricsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B277222302B2434009C044E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		8B277224302B2435009C044E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		8B27723C302B245F009C044E /* LiveLyricsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiveLyricsWidgetExtension.entitlements; sourceTree = "<group>"; };
+		8B27723D302B258A009C044E /* AppGroupModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppGroupModule.m; path = livelyrics/AppGroupModule.m; sourceTree = "<group>"; };
+		8B27723E302B258A009C044E /* AppGroupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppGroupModule.swift; path = livelyrics/AppGroupModule.swift; sourceTree = "<group>"; };
+		8B27723F302B258A009C044E /* LiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LiveActivityModule.m; path = livelyrics/LiveActivityModule.m; sourceTree = "<group>"; };
+		8B277240302B258A009C044E /* LiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiveActivityModule.swift; path = livelyrics/LiveActivityModule.swift; sourceTree = "<group>"; };
+		8C9083CC61CA6EFD892118F8 /* Pods-livelyrics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livelyrics.release.xcconfig"; path = "Target Support Files/Pods-livelyrics/Pods-livelyrics.release.xcconfig"; sourceTree = "<group>"; };
+		9A40CC217FDA60776F57F634 /* libPods-livelyrics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-livelyrics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = livelyrics/SplashScreen.storyboard; sourceTree = "<group>"; };
+		AD478F9159364771B1CCC4E2 /* expo.icon */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = expo.icon; path = livelyrics/expo.icon; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		CCAF8B42347860545138810F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = carlyrics/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = carlyrics/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "carlyrics-Bridging-Header.h"; path = "carlyrics/carlyrics-Bridging-Header.h"; sourceTree = "<group>"; };
-		F34032F464DE8F50F11D8E6B /* Pods-carlyrics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carlyrics.release.xcconfig"; path = "Target Support Files/Pods-carlyrics/Pods-carlyrics.release.xcconfig"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = livelyrics/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* livelyrics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "livelyrics-Bridging-Header.h"; path = "livelyrics/livelyrics-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8BC5F20C302A38C000CB0BCB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		8B277237302B243D009C044E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 8BC5F1F2302A38B500CB0BCB /* CarLyricsWidgetExtension */;
+			target = 8B277220302B2433009C044E /* LiveLyricsWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8BC5F1F8302A38B600CB0BCB /* CarLyricsWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8BC5F20C302A38C000CB0BCB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = CarLyricsWidget; sourceTree = "<group>"; };
+		8B277226302B2435009C044E /* LiveLyricsWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8B277237302B243D009C044E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LiveLyricsWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,67 +92,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D205F5238FBBEB27698C2BD2 /* libPods-carlyrics.a in Frameworks */,
+				D836D0E45355B8E98F4E6B3B /* libPods-livelyrics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC5F1F0302A38B500CB0BCB /* Frameworks */ = {
+		8B27721E302B2433009C044E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC5F1F7302A38B600CB0BCB /* SwiftUI.framework in Frameworks */,
-				8BC5F1F5302A38B600CB0BCB /* WidgetKit.framework in Frameworks */,
+				8B277225302B2435009C044E /* SwiftUI.framework in Frameworks */,
+				8B277223302B2435009C044E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* carlyrics */ = {
+		13B07FAE1A68108700A75B9A /* livelyrics */ = {
 			isa = PBXGroup;
 			children = (
+				8B27723D302B258A009C044E /* AppGroupModule.m */,
+				8B27723E302B258A009C044E /* AppGroupModule.swift */,
+				8B27723F302B258A009C044E /* LiveActivityModule.m */,
+				8B277240302B258A009C044E /* LiveActivityModule.swift */,
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* carlyrics-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* livelyrics-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				A8952D2C7C0E4E138E985AC3 /* expo.icon */,
-				CCAF8B42347860545138810F /* PrivacyInfo.xcprivacy */,
-				8BC5F21F302A484200CB0BCB /* AppGroupModule.m */,
-				8BC5F220302A484200CB0BCB /* AppGroupModule.swift */,
-				8BC5F221302A484200CB0BCB /* LiveActivityModule.m */,
-				8BC5F222302A484200CB0BCB /* LiveActivityModule.swift */,
+				AD478F9159364771B1CCC4E2 /* expo.icon */,
+				15420DB520EAB6FAD784D54A /* PrivacyInfo.xcprivacy */,
 			);
-			name = carlyrics;
+			name = livelyrics;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				24319D49DF0AD911B3750141 /* libPods-carlyrics.a */,
-				8BC5F1F4302A38B500CB0BCB /* WidgetKit.framework */,
-				8BC5F1F6302A38B600CB0BCB /* SwiftUI.framework */,
+				9A40CC217FDA60776F57F634 /* libPods-livelyrics.a */,
+				8B277222302B2434009C044E /* WidgetKit.framework */,
+				8B277224302B2435009C044E /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3FAC23776B48B25BFFB4A19D /* Pods */ = {
+		47436C410AEF898692E023C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				75F9F90BAC20967BB86B644C /* Pods-carlyrics.debug.xcconfig */,
-				F34032F464DE8F50F11D8E6B /* Pods-carlyrics.release.xcconfig */,
+				6687DFB0C800E26F0B1699ED /* Pods-livelyrics.debug.xcconfig */,
+				8C9083CC61CA6EFD892118F8 /* Pods-livelyrics.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		4DD5100A0788116290CC5E97 /* carlyrics */ = {
-			isa = PBXGroup;
-			children = (
-				8C958903400A6E70023B31C6 /* ExpoModulesProvider.swift */,
-			);
-			name = carlyrics;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -165,14 +157,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				8BC5F20E302A38DD00CB0BCB /* CarLyricsWidgetExtension.entitlements */,
-				13B07FAE1A68108700A75B9A /* carlyrics */,
+				8B27723C302B245F009C044E /* LiveLyricsWidgetExtension.entitlements */,
+				13B07FAE1A68108700A75B9A /* livelyrics */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				8BC5F1F8302A38B600CB0BCB /* CarLyricsWidget */,
+				8B277226302B2435009C044E /* LiveLyricsWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				3FAC23776B48B25BFFB4A19D /* Pods */,
-				CDEFFAF6A6A8E6323A8BB4DC /* ExpoModulesProviders */,
+				47436C410AEF898692E023C9 /* Pods */,
+				A49B6C5E3FE7BEE5E2C211A8 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -182,10 +174,26 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* carlyrics.app */,
-				8BC5F1F3302A38B500CB0BCB /* CarLyricsWidgetExtension.appex */,
+				13B07F961A680F5B00A75B9A /* livelyrics.app */,
+				8B277221302B2433009C044E /* LiveLyricsWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A49B6C5E3FE7BEE5E2C211A8 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				B1B91D60F1D374ADECCEFC39 /* livelyrics */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		B1B91D60F1D374ADECCEFC39 /* livelyrics */ = {
+			isa = PBXGroup;
+			children = (
+				2BA6D5DB425BDE73C889382E /* ExpoModulesProvider.swift */,
+			);
+			name = livelyrics;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -194,64 +202,56 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = carlyrics/Supporting;
-			sourceTree = "<group>";
-		};
-		CDEFFAF6A6A8E6323A8BB4DC /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				4DD5100A0788116290CC5E97 /* carlyrics */,
-			);
-			name = ExpoModulesProviders;
+			path = livelyrics/Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* carlyrics */ = {
+		13B07F861A680F5B00A75B9A /* livelyrics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "carlyrics" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "livelyrics" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				A64D961E0E767A83BA9EF6EC /* [Expo] Configure project */,
+				C66E7D466F24D6C45B6FE61F /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				616BD452E8EADF2F2038C50A /* [CP] Embed Pods Frameworks */,
-				8BC5F209302A38C000CB0BCB /* Embed Foundation Extensions */,
+				5FE71EF7C6EDAFE0DEFD41F8 /* [CP] Embed Pods Frameworks */,
+				8B27723B302B243D009C044E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8BC5F207302A38C000CB0BCB /* PBXTargetDependency */,
+				8B277235302B243D009C044E /* PBXTargetDependency */,
 			);
-			name = carlyrics;
-			productName = carlyrics;
-			productReference = 13B07F961A680F5B00A75B9A /* carlyrics.app */;
+			name = livelyrics;
+			productName = livelyrics;
+			productReference = 13B07F961A680F5B00A75B9A /* livelyrics.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BC5F1F2302A38B500CB0BCB /* CarLyricsWidgetExtension */ = {
+		8B277220302B2433009C044E /* LiveLyricsWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC5F20D302A38C000CB0BCB /* Build configuration list for PBXNativeTarget "CarLyricsWidgetExtension" */;
+			buildConfigurationList = 8B277238302B243D009C044E /* Build configuration list for PBXNativeTarget "LiveLyricsWidgetExtension" */;
 			buildPhases = (
-				8BC5F1EF302A38B500CB0BCB /* Sources */,
-				8BC5F1F0302A38B500CB0BCB /* Frameworks */,
-				8BC5F1F1302A38B500CB0BCB /* Resources */,
+				8B27721D302B2433009C044E /* Sources */,
+				8B27721E302B2433009C044E /* Frameworks */,
+				8B27721F302B2433009C044E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8BC5F1F8302A38B600CB0BCB /* CarLyricsWidget */,
+				8B277226302B2435009C044E /* LiveLyricsWidget */,
 			);
-			name = CarLyricsWidgetExtension;
+			name = LiveLyricsWidgetExtension;
 			packageProductDependencies = (
 			);
-			productName = CarLyricsWidgetExtension;
-			productReference = 8BC5F1F3302A38B500CB0BCB /* CarLyricsWidgetExtension.appex */;
+			productName = LiveLyricsWidgetExtension;
+			productReference = 8B277221302B2433009C044E /* LiveLyricsWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -264,16 +264,14 @@
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = RQFUDY2T47;
 						LastSwiftMigration = 1250;
-						ProvisioningStyle = Automatic;
 					};
-					8BC5F1F2302A38B500CB0BCB = {
+					8B277220302B2433009C044E = {
 						CreatedOnToolsVersion = 26.5;
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "carlyrics" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "livelyrics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -286,8 +284,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* carlyrics */,
-				8BC5F1F2302A38B500CB0BCB /* CarLyricsWidgetExtension */,
+				13B07F861A680F5B00A75B9A /* livelyrics */,
+				8B277220302B2433009C044E /* LiveLyricsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -300,12 +298,12 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				754731ADC4EA415D9DD6E33D /* expo.icon in Resources */,
-				47BA78D36DEC0B384FC37099 /* PrivacyInfo.xcprivacy in Resources */,
+				4AC248C29A1A46199A971963 /* expo.icon in Resources */,
+				EF56CE36A70CDE7591788F02 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC5F1F1302A38B500CB0BCB /* Resources */ = {
+		8B27721F302B2433009C044E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,20 +345,20 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-carlyrics-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-livelyrics-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		616BD452E8EADF2F2038C50A /* [CP] Embed Pods Frameworks */ = {
+		5FE71EF7C6EDAFE0DEFD41F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-livelyrics/Pods-livelyrics-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
@@ -373,7 +371,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-livelyrics/Pods-livelyrics-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
@@ -382,7 +380,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-livelyrics/Pods-livelyrics-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoDevice/ExpoDevice_privacy.bundle",
@@ -409,10 +407,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carlyrics/Pods-carlyrics-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-livelyrics/Pods-livelyrics-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A64D961E0E767A83BA9EF6EC /* [Expo] Configure project */ = {
+		C66E7D466F24D6C45B6FE61F /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -423,18 +421,18 @@
 			inputPaths = (
 				"$(SRCROOT)/.xcode.env",
 				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/carlyrics/carlyrics.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/expo-configure-project.sh",
+				"$(SRCROOT)/livelyrics/livelyrics.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-livelyrics/expo-configure-project.sh",
 			);
 			name = "[Expo] Configure project";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-carlyrics/ExpoModulesProvider.swift",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-livelyrics/ExpoModulesProvider.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-carlyrics/expo-configure-project.sh\"\n";
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-livelyrics/expo-configure-project.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -443,16 +441,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B277241302B258A009C044E /* LiveActivityModule.m in Sources */,
+				8B277242302B258A009C044E /* AppGroupModule.swift in Sources */,
+				8B277243302B258A009C044E /* AppGroupModule.m in Sources */,
+				8B277244302B258A009C044E /* LiveActivityModule.swift in Sources */,
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				8BC5F223302A484200CB0BCB /* AppGroupModule.m in Sources */,
-				8BC5F224302A484200CB0BCB /* LiveActivityModule.m in Sources */,
-				8BC5F225302A484200CB0BCB /* LiveActivityModule.swift in Sources */,
-				8BC5F226302A484200CB0BCB /* AppGroupModule.swift in Sources */,
-				E447E129FCED638160B209B7 /* ExpoModulesProvider.swift in Sources */,
+				20245D87EFFD7D1965E6320C /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC5F1EF302A38B500CB0BCB /* Sources */ = {
+		8B27721D302B2433009C044E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -462,23 +460,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8BC5F207302A38C000CB0BCB /* PBXTargetDependency */ = {
+		8B277235302B243D009C044E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BC5F1F2302A38B500CB0BCB /* CarLyricsWidgetExtension */;
-			targetProxy = 8BC5F206302A38C000CB0BCB /* PBXContainerItemProxy */;
+			target = 8B277220302B2433009C044E /* LiveLyricsWidgetExtension */;
+			targetProxy = 8B277234302B243D009C044E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75F9F90BAC20967BB86B644C /* Pods-carlyrics.debug.xcconfig */;
+			baseConfigurationReference = 6687DFB0C800E26F0B1699ED /* Pods-livelyrics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = livelyrics/livelyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RQFUDY2T47;
 				ENABLE_BITCODE = NO;
@@ -486,8 +482,10 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = carlyrics/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				INFOPLIST_FILE = livelyrics/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveLyrics;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,9 +497,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics;
-				PRODUCT_NAME = carlyrics;
-				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.livelyrics;
+				PRODUCT_NAME = livelyrics;
+				SWIFT_OBJC_BRIDGING_HEADER = "livelyrics/livelyrics-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -511,17 +509,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F34032F464DE8F50F11D8E6B /* Pods-carlyrics.release.xcconfig */;
+			baseConfigurationReference = 8C9083CC61CA6EFD892118F8 /* Pods-livelyrics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = expo;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = carlyrics/carlyrics.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = livelyrics/livelyrics.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RQFUDY2T47;
-				INFOPLIST_FILE = carlyrics/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				INFOPLIST_FILE = livelyrics/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveLyrics;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,9 +531,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics;
-				PRODUCT_NAME = carlyrics;
-				SWIFT_OBJC_BRIDGING_HEADER = "carlyrics/carlyrics-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.livelyrics;
+				PRODUCT_NAME = livelyrics;
+				SWIFT_OBJC_BRIDGING_HEADER = "livelyrics/livelyrics-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -662,7 +660,7 @@
 			};
 			name = Release;
 		};
-		8BC5F20A302A38C000CB0BCB /* Debug */ = {
+		8B277239302B243D009C044E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
@@ -676,8 +674,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = CarLyricsWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = LiveLyricsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -685,8 +682,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CarLyricsWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CarLyricsWidget;
+				INFOPLIST_FILE = LiveLyricsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveLyricsWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +695,7 @@
 				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics.CarLyricsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.livelyrics.LiveLyricsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -712,7 +709,7 @@
 			};
 			name = Debug;
 		};
-		8BC5F20B302A38C000CB0BCB /* Release */ = {
+		8B27723A302B243D009C044E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
@@ -726,8 +723,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = CarLyricsWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = LiveLyricsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -736,8 +732,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CarLyricsWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CarLyricsWidget;
+				INFOPLIST_FILE = LiveLyricsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LiveLyricsWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,7 +744,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.1;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.carlyrics.CarLyricsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shankencedric.livelyrics.LiveLyricsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -764,7 +760,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "carlyrics" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "livelyrics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -773,7 +769,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "carlyrics" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "livelyrics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -782,11 +778,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BC5F20D302A38C000CB0BCB /* Build configuration list for PBXNativeTarget "CarLyricsWidgetExtension" */ = {
+		8B277238302B243D009C044E /* Build configuration list for PBXNativeTarget "LiveLyricsWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8BC5F20A302A38C000CB0BCB /* Debug */,
-				8BC5F20B302A38C000CB0BCB /* Release */,
+				8B277239302B243D009C044E /* Debug */,
+				8B27723A302B243D009C044E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

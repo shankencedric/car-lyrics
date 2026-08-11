@@ -1,6 +1,6 @@
 //
-//  CarLyricsWidgetLiveActivity.swift
-//  CarLyricsWidget
+//  LiveLyricsWidgetLiveActivity.swift
+//  LiveLyricsWidget
 //
 
 import ActivityKit
@@ -8,7 +8,7 @@ import WidgetKit
 import SwiftUI
 
 // 1. DATA MODEL: Matched to LiveActivityModule.swift
-public struct CarLyricsWidgetAttributes: ActivityAttributes {
+public struct LiveLyricsWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         var title: String
         var artist: String
@@ -18,9 +18,9 @@ public struct CarLyricsWidgetAttributes: ActivityAttributes {
 }
 
 // 2. LIVE ACTIVITY & DYNAMIC ISLAND UI
-struct CarLyricsWidgetLiveActivity: Widget {
+struct LiveLyricsWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: CarLyricsWidgetAttributes.self) { context in
+        ActivityConfiguration(for: LiveLyricsWidgetAttributes.self) { context in
             // Lock Screen Banner UI
             HStack(spacing: 12) {
                 Image(systemName: "music.note.list")

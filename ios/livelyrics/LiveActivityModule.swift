@@ -2,7 +2,7 @@ import Foundation
 import ActivityKit
 
 // 1. Local Attributes Definition (Matches Widget extension 1:1 for ActivityKit bridge)
-public struct CarLyricsWidgetAttributes: ActivityAttributes {
+public struct LiveLyricsWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         var title: String
         var artist: String
@@ -19,14 +19,14 @@ class LiveActivityModule: NSObject {
   @objc(startActivity:artist:currentLine:)
   func startActivity(_ title: String, artist: String, currentLine: String) {
     if #available(iOS 16.1, *) {
-      let attributes = CarLyricsWidgetAttributes(name: "Car Lyrics")
-      let initialState = CarLyricsWidgetAttributes.ContentState(
+      let attributes = LiveLyricsWidgetAttributes(name: "Live Lyrics")
+      let initialState = LiveLyricsWidgetAttributes.ContentState(
         title: title,
         artist: artist,
         lyric: currentLine
       )
       do {
-        _ = try Activity<CarLyricsWidgetAttributes>.request(
+        _ = try Activity<LiveLyricsWidgetAttributes>.request(
           attributes: attributes,
           contentState: initialState,
           pushType: nil
@@ -40,13 +40,13 @@ class LiveActivityModule: NSObject {
   @objc(updateActivity:artist:currentLine:)
   func updateActivity(_ title: String, artist: String, currentLine: String) {
     if #available(iOS 16.1, *) {
-      let updatedState = CarLyricsWidgetAttributes.ContentState(
+      let updatedState = LiveLyricsWidgetAttributes.ContentState(
         title: title,
         artist: artist,
         lyric: currentLine
       )
       Task {
-        for activity in Activity<CarLyricsWidgetAttributes>.activities {
+        for activity in Activity<LiveLyricsWidgetAttributes>.activities {
           await activity.update(using: updatedState)
         }
       }
@@ -56,7 +56,7 @@ class LiveActivityModule: NSObject {
   @objc func endActivity() {
     if #available(iOS 16.1, *) {
       Task {
-        for activity in Activity<CarLyricsWidgetAttributes>.activities {
+        for activity in Activity<LiveLyricsWidgetAttributes>.activities {
           await activity.end(dismissalPolicy: .immediate)
         }
       }

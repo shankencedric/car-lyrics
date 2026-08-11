@@ -1,6 +1,6 @@
 //
-//  CarLyricsWidget.swift
-//  CarLyricsWidget
+//  LiveLyricsWidget.swift
+//  LiveLyricsWidget
 //
 //  Created by Sean Ken Cedric Legara on 8/10/26.
 //
@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - App Group & Key Definitions
 private enum AppGroup {
-    static let suiteName = "group.com.shankencedric.carlyrics"
+    static let suiteName = "group.com.shankencedric.livelyrics"
 
     enum Keys {
         static let currentTitle = "currentTitle"
@@ -349,7 +349,7 @@ struct SystemSmallDualView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(12)
         .containerBackground(.black, for: .widget)
-        .widgetURL(URL(string: "carlyrics://"))
+        .widgetURL(URL(string: "livelyrics://"))
     }
 
     private var titleLine1ArtistLine2Header: some View {
@@ -799,7 +799,7 @@ struct SystemExtraLargeView: View {
 }
 
 // MARK: - Widget Router Entry View
-struct CarLyricsWidgetEntryView: View {
+struct LiveLyricsWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
     var entry: Provider.Entry
 
@@ -824,7 +824,7 @@ struct CarLyricsWidgetEntryView: View {
                 SystemMediumView(entry: entry)
             }
         }
-        .widgetURL(URL(string: "carlyrics://"))
+        .widgetURL(URL(string: "livelyrics://"))
         .containerBackground(for: .widget) {
             if isAccessoryFamily(family) {
                 Color.clear
@@ -845,14 +845,14 @@ struct CarLyricsWidgetEntryView: View {
 }
 
 // MARK: - Main Multi-Family Widget
-struct CarLyricsWidget: Widget {
-    let kind: String = "CarLyricsWidget"
+struct LiveLyricsWidget: Widget {
+    let kind: String = "LiveLyricsWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CarLyricsWidgetEntryView(entry: entry)
+            LiveLyricsWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Car Lyrics")
+        .configurationDisplayName("Live Lyrics")
         .description("Displays real-time song lyrics on your Home Screen, Lock Screen, and CarPlay widget stack.")
         .supportedFamilies([
             .systemSmall,
@@ -868,8 +868,8 @@ struct CarLyricsWidget: Widget {
 }
 
 // MARK: - Widget 2: Dual Line Small Widget
-struct CarLyricsSmallDualWidget: Widget {
-    let kind: String = "CarLyricsSmallDualWidget"
+struct LiveLyricsSmallDualWidget: Widget {
+    let kind: String = "LiveLyricsSmallDualWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
@@ -884,7 +884,7 @@ struct CarLyricsSmallDualWidget: Widget {
 
 // MARK: - Xcode Canvas Previews
 #Preview(as: .systemMedium) {
-    CarLyricsWidget()
+    LiveLyricsWidget()
 } timeline: {
     SimpleEntry(
         date: .now,
