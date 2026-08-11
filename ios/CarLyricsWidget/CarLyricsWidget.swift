@@ -247,75 +247,98 @@ struct SystemSmallDualView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ViewThatFits(in: .vertical) {
-                // Tier 1: Title Header + Active Line + Next Line
-                VStack(alignment: .leading, spacing: 4) {
+                // Tier 1 (Best Case): Title • Artist + Current Line (Full) + Next Line (Full or Truncated)
+                VStack(alignment: .leading, spacing: 3) {
                     headerView
                     Spacer(minLength: 2)
-                    activeLineText
+                    currentLineStandard
                     if let next = entry.nextLyric, !next.isEmpty {
-                        nextLineText(next)
+                        nextLineText(next, size: 11)
                     }
                     Spacer(minLength: 2)
                 }
 
-                // Tier 2: Active Line + Next Line (Hides Title Header for extra vertical room)
-                VStack(alignment: .leading, spacing: 4) {
+                // Tier 2 (Next Best Case): Current Line (Full, Standard Size) + Next Line (Truncated)
+                VStack(alignment: .leading, spacing: 3) {
                     Spacer(minLength: 2)
-                    activeLineText
+                    currentLineStandard
                     if let next = entry.nextLyric, !next.isEmpty {
-                        nextLineText(next)
+                        nextLineText(next, size: 11)
                     }
                     Spacer(minLength: 2)
                 }
 
-                // Tier 3: Active Line Only (Failsafe: Header & Next Line hidden, Active Line gets 100% room without truncation)
+                // Tier 3 (Next Next Best Case): Current Line (Full, Adapted/Smaller Size) + Next Line (Truncated)
+                // Font size adapts down to guarantee both current line and next line stay visible together
+                VStack(alignment: .leading, spacing: 2) {
+                    Spacer(minLength: 2)
+                    currentLineAdapted
+                    if let next = entry.nextLyric, !next.isEmpty {
+                        nextLineText(next, size: 9.5)
+                    }
+                    Spacer(minLength: 2)
+                }
+
+                // Tier 4 (Worst Case): Only Current Line (100% space allocated, scales down so it NEVER cuts off)
                 VStack(alignment: .leading, spacing: 0) {
                     Spacer(minLength: 0)
-                    activeLineTextUnlimited
+                    currentLineFailsafe
                     Spacer(minLength: 0)
                 }
             }
         }
-        .padding(12)
+        .padding(10)
         .containerBackground(.black, for: .widget)
         .widgetURL(URL(string: "carlyrics://"))
     }
 
+    // Title & Artist Header
     private var headerView: some View {
         HStack(spacing: 3) {
             Image(systemName: "music.note")
                 .foregroundColor(.green)
-                .font(.system(size: 9, weight: .bold))
-            Text(entry.title)
-                .font(.system(size: 9, weight: .bold))
+                .font(.system(size: 8, weight: .bold))
+            Text("\(entry.title) • \(entry.artist)")
+                .font(.system(size: 8, weight: .bold))
                 .foregroundColor(.white.opacity(0.85))
                 .lineLimit(1)
         }
     }
 
-    private var activeLineText: some View {
+    // Standard Size Current Line (lineLimit(nil) forces ViewThatFits to drop tier if text overflows)
+    private var currentLineStandard: some View {
         Text(entry.lyric)
             .font(.system(size: 13, weight: .bold, design: .rounded))
             .foregroundColor(.white)
-            .lineLimit(2)
-            .minimumScaleFactor(0.75)
-            .fixedSize(horizontal: false, vertical: true)
+            .lineLimit(nil)
+            .minimumScaleFactor(0.85)
     }
 
-    private var activeLineTextUnlimited: some View {
+    // Adapted/Smaller Size Current Line (Increases layout headroom to keep Next Line visible)
+    private var currentLineAdapted: some View {
+        Text(entry.lyric)
+            .font(.system(size: 11, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .lineLimit(nil)
+            .minimumScaleFactor(0.75)
+    }
+
+    // Next Line (Truncates gracefully with "..." if space requires)
+    private func nextLineText(_ text: String, size: CGFloat) -> some View {
+        Text(text)
+            .font(.system(size: size, weight: .semibold, design: .rounded))
+            .foregroundColor(.white.opacity(0.75))
+            .lineLimit(2)
+            .minimumScaleFactor(0.8)
+    }
+
+    // Tier 4 Failsafe Current Line (Takes 100% vertical space and scales down to 0.5x)
+    private var currentLineFailsafe: some View {
         Text(entry.lyric)
             .font(.system(size: 14, weight: .bold, design: .rounded))
             .foregroundColor(.white)
-            .minimumScaleFactor(0.55)
-            .fixedSize(horizontal: false, vertical: true)
-    }
-
-    private func nextLineText(_ text: String) -> some View {
-        Text(text)
-            .font(.system(size: 11, weight: .semibold, design: .rounded))
-            .foregroundColor(.white.opacity(0.8))
-            .lineLimit(2)
-            .minimumScaleFactor(0.8)
+            .lineLimit(4)
+            .minimumScaleFactor(0.5)
             .fixedSize(horizontal: false, vertical: true)
     }
 }
