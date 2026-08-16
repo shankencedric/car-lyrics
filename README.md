@@ -85,7 +85,6 @@
   - **Lock Screen: Accessory Circular** - circular progress bar (no CarPlay).
 - **Continuous Background Audio:** Persistent audio session and lyric streaming when the app is backgrounded or when the iPhone screen is locked.
 - **Adaptive Formatting:** Prioritizes fitting the current and next lyrics -- avoids truncation and clears other elements like title/artist if needed.
-- **Dynamic Branding Footers:** Smart contextual fallbacks when no song/platform is playing (e.g., _"sing-along with your favorite platforms thru LiveLyrics"_ vs. _"streaming from YouTube Music via LiveLyrics"_).
 
 ---
 
