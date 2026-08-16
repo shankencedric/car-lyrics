@@ -181,7 +181,7 @@ npx expo prebuild --platform ios --clean
 3. **Restore Native Source Files:**
 
 - Copy all `*.swift`, `*.m`, and `*.h` files from `<git-origin>/ios/livelyrics/livelyrics` into `<working-branch>/ios/livelyrics/livelyrics/`.
-- Do the same for the `ios/LiveLyricsWidget/` folder (copying your saved `CarLyricsWidget.swift` / widget code into `ios/LiveLyricsWidget/`).
+- Do the same for the `ios/LiveLyricsWidget/` folder.
 
 4. **Link Files in Xcode:**
 
