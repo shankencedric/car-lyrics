@@ -5,44 +5,44 @@
 <table align="center">
   <tr>
     <td align="center">
-      <b>In-App Player</b><br/>
+      <small><b>In-App Player</b></small><br/>
       <img src="./.docs/previews/app-preview-1.png" width="220" alt="In-App Player" />
     </td>
     <td align="center">
-      <b>Live Lyrics (🎤)</b><br/>
+      <small><b>Live Lyrics (🎤)</b></small><br/>
       <img src="./.docs/previews/app-preview-2.png" width="220" alt="In-App Lyrics" />
     </td>
     <td align="center">
-      <b>Platform Select (🔴)</b><br/>
+      <small><b>Platform Select (🔴)</b></small><br/>
       <img src="./.docs/previews/app-preview-3.png" width="220" alt="In-App Platform Select" />
     </td>
   </tr>
   <tr>
-    <td align="center" colspan="1">
-      <b>Lock Screen</b><br/>
+    <td align="center">
+      <small><b>Lock Screen</b></small><br/>
       <img src="./.docs/previews/lock-preview-1.png" width="220" alt="Lock Screen Widgets" />
     </td>
     <td align="center">
-      <b>Small Widgets</b><br/>
+      <small><b>Small Widgets</b></small><br/>
       <img src="./.docs/previews/home-preview-1.png" width="220" alt="Small Widgets" />
     </td>
     <td align="center">
-      <b>Medium/Large Widgets</b><br/>
+      <small><b>Medium/Large Widgets</b></small><br/>
       <img src="./.docs/previews/home-preview-2.png" width="220" alt="Medium & Large Widgets" />
     </td>
   </tr>
   <tr>
     <td align="center">
-      <b></b><br/>
-      <img src="./.docs/previews/carplay-preview-1.png" width="220" alt="Carplay Dashboard Widgets" />
+      <small><b></b></small><br/>
+      <img src="./.docs/previews/carplay-preview-1.png" width="220" alt="CarPlay Dashboard 1" />
     </td>
     <td align="center">
-      <b>CarPlay Dashboard</b><br/>
-      <img src="./.docs/previews/carplay-preview-2.png" width="220" alt="Carplay Dashboard Widgets" />
+      <small><b>CarPlay Dashboard</b></small><br/>
+      <img src="./.docs/previews/carplay-preview-2.png" width="220" alt="CarPlay Dashboard 2" />
     </td>
     <td align="center">
-      <b></b><br/>
-      <img src="./.docs/previews/carplay-preview-3.png" width="220" alt="Carplay Dashboard Widgets" />
+      <small><b></b></small><br/>
+      <img src="./.docs/previews/carplay-preview-3.png" width="220" alt="CarPlay Dashboard 3" />
     </td>
   </tr>
 </table>
