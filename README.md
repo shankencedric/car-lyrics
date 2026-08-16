@@ -1,6 +1,16 @@
 # 🎵 LiveLyrics
 
-> Real-time synced lyrics for your iOS Home Screen, Lock Screen, and CarPlay dashboard.
+<p align="center">
+  <a href="#-concept--vision">Description</a> •
+  <a href="#-key-features--widget-suite">Features</a> •
+  <a href="#-user-guide">User Guide</a> •
+  <a href="#-developer-setup--building-guide">Developer Setup</a> •
+  <a href="#%EF%B8%8F-copyright--terms-of-use">License & Terms</a>
+</p>
+
+<p align="center">
+  <img src="./.docs/previews/github-social-preview.png" width="700" alt="LiveLyrics Banner" />
+</p>
 
 <table align="center">
   <tr>
