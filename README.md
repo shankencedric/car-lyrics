@@ -238,10 +238,10 @@ npx expo run:ios
 
 ## ⚖️ Copyright & Terms of Use
 
-**LiveLyrics** is a proprietary prototype developed for showcase and educational purposes.
+**LiveLyrics** is a proprietary prototype developed for showcase, educational, and personal use.
 
 - **Copyright (c) 2026 Sean Ken Cedric Legara. All Rights Reserved.**
-- Viewing and inspecting the source code is permitted for educational and review purposes.
-- Unauthorized copying, distribution, modification, commercial usage, or publishing of this software or its parts on any app store is strictly prohibited.
+- **Personal Use Allowed:** You are welcome to inspect the source code, build the app, and run personal builds on your own devices for personal, non-commercial use.
+- **No Redistribution or Commercialization:** Public redistribution, hosting pre-compiled binaries, publishing modified derivatives, or submitting this software (or its parts) to any app store or marketplace is strictly prohibited.
 
-If you are interested in using LiveLyrics or its underlying code for commercial applications, custom builds, or app store distribution, please contact **[legara.connect@gmail.com](mailto:legara.connect@gmail.com)** to negotiate a commercial license.
+If you are interested in using LiveLyrics or its underlying architecture for commercial applications, custom builds, or third-party distribution, please contact **[legara.connect@gmail.com](mailto:legara.connect@gmail.com)** to discuss a commercial license.
