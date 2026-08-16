@@ -1,4 +1,4 @@
-# 🎵 LiveLyrics
+<h1 align="center">🎵 LiveLyrics 🎤</h1>
 
 <p align="center">
   <img src="./.docs/previews/github-social-preview.png" alt="LiveLyrics Banner" />
