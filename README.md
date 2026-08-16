@@ -2,15 +2,50 @@
 
 > Real-time synced lyrics for your iOS Home Screen, Lock Screen, and CarPlay dashboard.
 
----
-
-## 🖼️ Previews
-
-![In-App Web Player](./docs/previews/app-preview-1.png)
-![iOS Home Screen Small Widgets](./docs/previews/home-preview-1.png)
-![iOS Home Screen Medium & Large Widgets](./docs/previews/home-preview-2.png)
-![iOS Lock Screen Accessory Widgets](./docs/previews/lock-preview-4.png)
-![CarPlay Dashboard Widget](./docs/previews/carplay-preview-1.png)
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>In-App Player</b><br/>
+      <img src="./.docs/previews/app-preview-1.png" width="220" alt="In-App Player" />
+    </td>
+    <td align="center">
+      <b>Live Lyrics (🎤)</b><br/>
+      <img src="./.docs/previews/app-preview-2.png" width="220" alt="In-App Lyrics" />
+    </td>
+    <td align="center">
+      <b>Platform Select (🔴)</b><br/>
+      <img src="./.docs/previews/app-preview-3.png" width="220" alt="In-App Platform Select" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="1">
+      <b>Lock Screen</b><br/>
+      <img src="./.docs/previews/lock-preview-1.png" width="220" alt="Lock Screen Widgets" />
+    </td>
+    <td align="center">
+      <b>Small Widgets</b><br/>
+      <img src="./.docs/previews/home-preview-1.png" width="220" alt="Small Widgets" />
+    </td>
+    <td align="center">
+      <b>Medium/Large Widgets</b><br/>
+      <img src="./.docs/previews/home-preview-2.png" width="220" alt="Medium & Large Widgets" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b></b><br/>
+      <img src="./.docs/previews/carplay-preview-1.png" width="220" alt="Carplay Dashboard Widgets" />
+    </td>
+    <td align="center">
+      <b>CarPlay Dashboard</b><br/>
+      <img src="./.docs/previews/carplay-preview-2.png" width="220" alt="Carplay Dashboard Widgets" />
+    </td>
+    <td align="center">
+      <b></b><br/>
+      <img src="./.docs/previews/carplay-preview-3.png" width="220" alt="Carplay Dashboard Widgets" />
+    </td>
+  </tr>
+</table>
 
 ## 💡 Concept & Vision
 
